@@ -1,0 +1,3012 @@
+﻿input_address,Number,PreDir,StreetName,StreetType,PostDir,Unit,City,State,Zip,missing_required_fields,missing_required_count,has_missing_required,missing_optional_fields,missing_optional_count,raw_model_output,error
+2150 A Citrus Pl Hacienda Heights 91745,2150,A,Citrus,Pl,,,Hacienda Heights,CA,91745,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address: ""2150 A Citrus Pl Hacienda Heights 91745"". I need to break it down into the specified JSON keys.
+
+First, the keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State should be ""CA"", so I'll make sure to include that.
+
+Starting with the Number. The first part is ""2150"", so that's the street number. Then ""A"" might be a pre-directional, like ""A"" for ""Avenue"" but here it's probably a pre-directional. Wait, ""A Citrus Pl"" – ""A"" could be the pre-directional. So PreDir would be ""A"".
+
+Next, StreetName. The street name is ""Citrus"". Then StreetType is ""Pl"", which stands for Plaza. So StreetType is ""Pl"".
+
+PostDir would be empty here since there's no post-directional like ""E"" or ""W"". So that's """".
+
+Unit: The address doesn't mention a unit number, like ""Apt 123"", so Unit should be """".
+
+City is ""Hacienda Heights"". Then State is ""CA"" as specified. Zip is ""91745"".
+
+Wait, let me check again. The address is ""2150 A Citrus Pl Hacienda Heights 91745"". So after the street, it's the city and zip. So ""Hacienda Heights"" is the city, and ""91745"" is the zip.
+
+Let me confirm each part:
+
+- Number: 2150
+- PreDir: A (since it's ""A Citrus Pl"", so ""A"" is the pre-directional)
+- StreetName: Citrus
+- StreetType: Pl
+- PostDir: (none, so empty)
+- Unit: (none, empty)
+- City: Hacienda Heights
+- State: CA
+- Zip: 91745
+
+Yes, that seems right. I should make sure that ""Pl"" is correctly identified as StreetType. ""Pl"" is short for Plaza, so that's correct. No unit mentioned, so Unit is empty. City is Hacienda Heights, which is a city in California, so State is CA. Zip code 91745 is correct for that area.
+
+Double-checking if ""A"" is PreDir. Sometimes addresses have things like ""N"" or ""S"" before the street name, so ""A"" here is likely the pre-directional. So PreDir is ""A"".
+
+Everything else seems to fit. So the JSON should have all these values with the correct keys.
+</think>
+
+{
+  ""Number"": ""2150"",
+  ""PreDir"": ""A"",
+  ""StreetName"": ""Citrus"",
+  ""StreetType"": ""Pl"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Hacienda Heights"",
+  ""State"": ""CA"",
+  ""Zip"": ""91745""
+}",
+2150 B Citrus Pl Hacienda Heights 91745,2150,,Citrus,Pl,,B,Hacienda Heights,CA,91745,[],0,False,"['PreDir', 'PostDir']",2,"Okay, let's tackle this address parsing. The user provided the address ""2150 B Citrus Pl Hacienda Heights 91745"" and wants it broken down into specific JSON keys. First, I need to recall the standard address components.
+
+Starting with the Number: The first part is usually the street number. Here, ""2150"" looks like the number. So Number should be ""2150"".
+
+Next, PreDir. That's the prefix direction like North, South, etc. The address has ""B"" after the number. Wait, ""B"" might be a pre-directional, but sometimes ""B"" is part of the street name. Wait, the street name is ""Citrus Pl"", so ""B"" might be a pre-direction. But ""B"" isn't a standard direction (N, S, E, W). Hmm. Maybe it's a unit or part of the street name. Wait, the address is ""2150 B Citrus Pl"". Maybe ""B"" is a pre-direction, but it's not standard. The user says if unknown, use """". So maybe PreDir is empty. Wait, but sometimes ""B"" could be a direction, but I think it's more likely part of the street name or a unit. Wait, the street type is ""Pl"" for Place. So ""Citrus Pl"" is the street name. So ""B"" might be a unit or a pre-direction. Let's check standard address parsing. PreDir is for directions like N, S, E, W. Since ""B"" isn't one of those, maybe it's not a PreDir. So PreDir would be """".
+
+StreetName: The main part of the street name. Here, ""Citrus"" is the name, so StreetName should be ""Citrus"".
+
+StreetType: ""Pl"" stands for Place, so StreetType is ""Pl"".
+
+PostDir: After the street name, like ""N"", ""S"", etc. But in this address, after ""Citrus Pl"" comes ""Hacienda Heights"", which is the city. So PostDir is probably empty.
+
+Unit: Sometimes addresses have units like APT, SUITE, etc. The address has ""B"" after the number. Wait, maybe ""B"" is the unit. For example, 2150 B could mean Unit B. So Unit would be ""B"".
+
+City: ""Hacienda Heights"" is the city name.
+
+State: The user specified State should be ""CA"", so that's straightforward.
+
+Zip: ""91745"" is the zip code.
+
+Wait, let's double-check. The address is ""2150 B Citrus Pl Hacienda Heights 91745"". So breaking it down:
+
+- 2150: Number
+- B: Could be Unit or PreDir. Since PreDir is directions (N/S/E/W), and B isn't one, Unit might be ""B"".
+- Citrus: StreetName
+- Pl: StreetType
+- Hacienda Heights: City
+- 91745: Zip
+
+So Unit is ""B"", not PreDir. So PreDir is empty.
+
+Let me confirm. If it's ""2150 B Citrus Pl"", then ""B"" is likely the unit, like apartment B. So Unit: ""B"".
+
+Yes, that makes sense. So PreDir is empty.
+
+State is given as CA, so State: ""CA"".
+
+Putting it all together:
+
+Number: ""2150""
+
+PreDir: """"
+
+StreetName: ""Citrus""
+
+StreetType: ""Pl""
+
+PostDir: """"
+
+Unit: ""B""
+
+City: ""Hacienda Heights""
+
+State: ""CA""
+
+Zip: ""91745""
+
+Check if all keys are present. The user specified exactly those keys. Let me make sure I didn't miss any. Yes, all are covered. If any part is unknown, use """". Here, PreDir and PostDir are unknown, so empty strings.
+
+Double-checking the address: 2150 B Citrus Pl Hacienda Heights 91745. Yes, Hacienda Heights is the city in California, so State is CA. Zip is 91745.
+
+Looks good. So the JSON should have all these values.
+</think>
+
+{
+  ""Number"": ""2150"",
+  ""PreDir"": """",
+  ""StreetName"": ""Citrus"",
+  ""StreetType"": ""Pl"",
+  ""PostDir"": """",
+  ""Unit"": ""B"",
+  ""City"": ""Hacienda Heights"",
+  ""State"": ""CA"",
+  ""Zip"": ""91745""
+}",
+904 Los Angeles 90073,904,,,,,,Los Angeles,CA,90073,['StreetName'],1,True,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided the address ""904 Los Angeles 90073"" and wants it parsed into specific JSON keys. First, I need to break down the address components.
+
+Looking at the address: ""904 Los Angeles 90073"". The first part is ""904"", which is likely the street number. Then ""Los Angeles"" is the city name, but wait, the user mentioned that the State should be ""CA"", so maybe ""Los Angeles"" is the city here. But wait, the address format usually has Number, StreetName, StreetType, etc. However, ""Los Angeles"" is a city, not a street name. Hmm, maybe the street name is missing here. Let me check the keys again.
+
+The required keys are: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+So, ""904"" would be the Number. Then ""Los Angeles"" – but that's a city. Wait, the address might be incomplete. The user might have made a typo. Let's see. The address given is ""904 Los Angeles 90073"". So ""904"" is the number, ""Los Angeles"" is the city, and ""90073"" is the zip code. But the city should be ""Los Angeles"", and the zip is 90073. However, the State is supposed to be ""CA"" as per the instructions.
+
+Wait, but the standard address format would have the street number, street name, city, state, zip. Here, ""Los Angeles"" is the city, so the street name might be missing. But the address provided doesn't have a street name. So maybe the ""Los Angeles"" here is part of the street name? Like ""Los Angeles Street"", but that's not indicated. The address as given is ""904 Los Angeles 90073"", which is a bit confusing.
+
+Wait, maybe ""Los Angeles"" is the city, so the city field would be ""Los Angeles"", and the zip is 90073. But the user said to use ""CA"" for State. So the State key should be ""CA"".
+
+Let me check each part:
+
+- Number: 904 (the first part)
+- PreDir: Not present, so empty string
+- StreetName: Missing, so empty
+- StreetType: Missing, empty
+- PostDir: Missing, empty
+- Unit: Not present, empty
+- City: Los Angeles
+- State: CA (as instructed)
+- Zip: 90073
+
+Wait, but the address is ""904 Los Angeles 90073"". So ""Los Angeles"" is the city, so City should be ""Los Angeles"", Zip is 90073. The street name isn't there, so StreetName would be empty. The number is 904. So the JSON would have Number: ""904"", City: ""Los Angeles"", State: ""CA"", Zip: ""90073"", and all other fields empty.
+
+Wait, but the user said ""State should be 'CA'"", so even if the address didn't specify, we have to set it to CA. So State is ""CA"".
+
+Let me confirm each key:
+
+- Number: 904
+- PreDir: (no direction like N, S, E, W) so """"
+- StreetName: (no street name, just ""Los Angeles"" which is city) so """"
+- StreetType: (no type like St, Ave) so """"
+- PostDir: (no direction after street) so """"
+- Unit: (no apartment or unit number) so """"
+- City: Los Angeles
+- State: CA
+- Zip: 90073
+
+Yes, that seems right. The address is missing the street name, so StreetName is empty. The city is Los Angeles, zip is 90073. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""904"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Los Angeles"",
+  ""State"": ""CA"",
+  ""Zip"": ""90073""
+}",
+13053 La Puente 91746,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+1861 Unit 243 Hacienda Heights 91745,1861,,,,,243,Hacienda Heights,CA,91745,['StreetName'],1,True,"['PreDir', 'StreetType', 'PostDir']",3,"Okay, let's tackle this address parsing. The user provided the address: ""1861 Unit 243 Hacienda Heights 91745"". I need to break it down into the specified JSON keys.
+
+First, the keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State should be ""CA"", so I'll make sure to include that.
+
+Looking at the address: ""1861 Unit 243 Hacienda Heights 91745"". Let's split it. The first part is ""1861"", which is likely the street number. Then ""Unit 243"" is the unit number. Next is ""Hacienda Heights"" – that's probably the city. Wait, but sometimes ""Hacienda Heights"" could be part of the street name. Wait, Hacienda Heights is a city in California, so that's the city. Then the zip code is 91745.
+
+Wait, but the address format usually has the street number, street name, city, state, zip. Let me check. The address given is ""1861 Unit 243 Hacienda Heights 91745"". So ""1861"" is the number. ""Unit 243"" is the unit. Then ""Hacienda Heights"" is the city. The zip is 91745. But wait, sometimes the city might be part of the street name. Wait, Hacienda Heights is a city, so that's the city. So City would be ""Hacienda Heights"".
+
+Wait, but let's confirm. Hacienda Heights is a city in Los Angeles County, CA. So yes, the city is Hacienda Heights. The zip code 91745 is for Hacienda Heights. So that checks out.
+
+Now, breaking down the address:
+
+- Number: 1861
+- Unit: 243 (since it's ""Unit 243"", so Unit key should be ""243"")
+- City: Hacienda Heights
+- Zip: 91745
+- State: CA (as specified)
+
+Now, what about PreDir, StreetName, StreetType, PostDir? The address doesn't have any directional prefixes (like N, S, E, W) before the street name, so PreDir would be empty. Similarly, no post-directionals (like NE, SW), so PostDir is empty. The street name and type: but the address given is ""1861 Unit 243 Hacienda Heights 91745"". Wait, there's no street name here. Wait, maybe ""Hacienda Heights"" is the city, but the street name is missing. Wait, the address as given might be missing the street name. Let me think.
+
+Wait, the address is written as ""1861 Unit 243 Hacienda Heights 91745"". So the structure is:
+
+- Number: 1861
+- Unit: 243
+- City: Hacienda Heights
+- Zip: 91745
+
+But where's the street name? Maybe ""Hacienda Heights"" is the city, and the street name is missing. But the user provided the address as is, so perhaps the street name isn't present. So StreetName would be empty, StreetType empty as well.
+
+Wait, but sometimes ""Hacienda Heights"" could be part of the street name. Wait, but Hacienda Heights is a city, so it's more likely the city. Let's check a real example. For instance, a typical address in Hacienda Heights would have a street name like ""Main Street"", but here the address given skips the street name. So perhaps the address is incomplete, but we have to work with what's given.
+
+So, in the absence of a street name, StreetName and StreetType would be empty. Let's confirm the keys:
+
+- Number: 1861
+- PreDir: (no prefix, so """")
+- StreetName: (no street name given, so """")
+- StreetType: (no street type like St, Ave, etc., so """")
+- PostDir: (no suffix, so """")
+- Unit: 243
+- City: Hacienda Heights
+- State: CA
+- Zip: 91745
+
+Wait, but the address says ""Unit 243"", so Unit should be ""243"", not ""Unit 243"". The key is Unit, so just the number.
+
+Also, check if ""Hacienda Heights"" is the city. Yes, Hacienda Heights is a city in California. So City is ""Hacienda Heights"".
+
+Zip code 91745 is correct for Hacienda Heights.
+
+So putting it all together:
+
+Number: ""1861""
+
+PreDir: """"
+
+StreetName: """"
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: ""243""
+
+City: ""Hacienda Heights""
+
+State: ""CA""
+
+Zip: ""91745""
+
+Wait, but the user said ""State should be 'CA'"", so even if the address didn't specify, we have to set it to CA. So that's covered.
+
+Double-checking all keys are present. The user specified exactly those keys, so all must be included.
+
+So the JSON should have all those keys with the values as above.
+</think>
+
+{
+  ""Number"": ""1861"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": ""243"",
+  ""City"": ""Hacienda Heights"",
+  ""State"": ""CA"",
+  ""Zip"": ""91745""
+}",
+5522 San Gabriel 91776,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing problem. The user provided an address: ""5522 San Gabriel 91776"" and wants it parsed into a specific JSON format with certain keys. The instructions say to use exactly those keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. If something is unknown, use an empty string. Also, State should be ""CA"", and return only JSON without any explanations.
+
+First, I need to break down the address. Let's look at each part. The address is ""5522 San Gabriel 91776"". Hmm, usually addresses have a number, street name, street type, city, state, zip. But here, the zip code is at the end, which is 91776. Wait, 91776 is a zip code, so that's probably the Zip field.
+
+So, the number part should be ""5522"". Then ""San Gabriel"" – that's likely the street name. But wait, ""San Gabriel"" is a proper noun, so maybe ""San Gabriel"" is the StreetName, and there's no StreetType here. Wait, sometimes street types like ""Avenue"", ""Street"", etc., are part of the address. But ""San Gabriel"" is a street name, maybe it's ""San Gabriel Street"" but the address doesn't have ""Street"" here. So maybe StreetType is empty.
+
+Looking at the address: ""5522 San Gabriel 91776"". So after the number, it's ""San Gabriel"", then the zip. So perhaps ""San Gabriel"" is the StreetName, and there's no StreetType. So StreetType would be empty.
+
+Now, checking for other components. PreDir (pre-directional like ""N"", ""S"") – not present here. PostDir (post-directional like ""E"", ""W"") – also not present. Unit (like apartment number) – not mentioned. City – the address doesn't have a city name. Wait, the zip code 91776 is for San Gabriel, CA. Wait, San Gabriel is a city in California. So maybe the City is ""San Gabriel"", but the address as given doesn't include the city name. Wait, the address provided is ""5522 San Gabriel 91776"". So ""San Gabriel"" is part of the street name, and the zip code is 91776. But the city would be San Gabriel, but the user's address doesn't explicitly state the city. However, the problem says to use the given address, so if the city isn't in the address, we should leave it as empty. Wait, but the zip code 91776 is for San Gabriel, CA. But the instructions say to parse the given address, not to infer the city from the zip. So the address as written doesn't have a city name, so City should be empty. Wait, but the user might have made a mistake. Let me check.
+
+Wait, the address is ""5522 San Gabriel 91776"". So the components are:
+
+- Number: 5522
+
+- StreetName: San Gabriel
+
+- Zip: 91776
+
+But where is the city? The zip code 91776 is for San Gabriel, CA, so the city is San Gabriel. But the address as given doesn't have ""San Gabriel"" as the city; it's part of the street. Wait, maybe ""San Gabriel"" is the street name, and the city is missing. But the problem says to use the address provided. So if the address doesn't have a city, then City should be empty. However, the zip code 91776 is associated with San Gabriel, so maybe the city is San Gabriel. But the instructions say to parse the given address, not to look up the city from the zip. So I should not assume the city. The address provided is ""5522 San Gabriel 91776"", so the city isn't mentioned. Therefore, City should be empty.
+
+Wait, but in the US, addresses usually have the city, state, zip. But here, the zip is given at the end. So maybe the city is missing. So City would be empty. But the user says State should be ""CA"", so State is set to CA regardless.
+
+Let me confirm the keys:
+
+Number: 5522
+
+PreDir: (not present) """"
+
+StreetName: San Gabriel
+
+StreetType: (not present, since ""San Gabriel"" is the name, not a type like Ave) """"
+
+PostDir: (not present) """"
+
+Unit: (not present) """"
+
+City: (not in address) """"
+
+State: ""CA"" (as per instruction)
+
+Zip: 91776
+
+Wait, but the address has ""San Gabriel"" as part of the street. So StreetName is ""San Gabriel"", and StreetType is empty. So StreetType would be empty.
+
+So putting it all together:
+
+Number: ""5522""
+
+PreDir: """"
+
+StreetName: ""San Gabriel""
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: """"
+
+State: ""CA""
+
+Zip: ""91776""
+
+Wait, but the zip code is 91776. The user wrote ""91776"" at the end, so Zip should be ""91776"".
+
+But let me check if ""San Gabriel"" is the street name. For example, ""San Gabriel Boulevard"" would have StreetName ""San Gabriel"" and StreetType ""Boulevard"", but here it's just ""San Gabriel"", so StreetType is empty.
+
+Also, the address doesn't have any directions (PreDir or PostDir), so those are empty.
+
+Unit is not present, so empty.
+
+City is not in the address, so empty.
+
+State is given as CA.
+
+So the JSON should have all these fields with the values as above.
+
+Wait, but the user's address is ""5522 San Gabriel 91776"". So the zip is 91776. So Zip is ""91776"".
+
+Yes. So the JSON should be:
+
+{
+  ""Number"": ""5522"",
+  ""PreDir"": """",
+  ""StreetName"": ""San Gabriel"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""91776""
+}
+
+Wait, but the user said ""State should be 'CA'"", so even if the address didn't have it, we set State to CA. So that's correct.
+
+Double-checking all fields. The address doesn't have a city, so City is empty. All other fields as per the address.
+
+Yes, this seems right.
+</think>
+
+{
+  ""Number"": ""5522"",
+  ""PreDir"": """",
+  ""StreetName"": ""San Gabriel"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""91776""
+}"
+1524 Unit A,1524,,,,,A,,CA,,"['StreetName', 'City', 'Zip']",3,True,"['PreDir', 'StreetType', 'PostDir']",3,"Okay, let's tackle this address parsing request. The user wants me to parse ""1524 Unit A"" into a specific JSON format with certain keys. Let me break it down.
+
+First, the required keys are: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State must be ""CA"", and if anything's unknown, use empty strings.
+
+Looking at the address: ""1524 Unit A"". Hmm, this seems a bit short. Let's see. The number part is usually the street number. So ""1524"" would be the Number. Then ""Unit A"" is probably the Unit field. But wait, the address doesn't mention a street name or type. So StreetName and StreetType would be empty. PreDir and PostDir are directional prefixes like ""N"" or ""E"", but there's none here. City and Zip aren't provided, so they should be empty. State is specified as ""CA"" regardless.
+
+Wait, the user said ""State should be 'CA'"". So even if the address doesn't have a state, I have to set it to CA. So State: ""CA"".
+
+Let me check each field:
+
+- Number: 1524 (since it's the first part before Unit)
+- PreDir: empty
+- StreetName: empty (no street name given)
+- StreetType: empty (no type like St, Ave)
+- PostDir: empty
+- Unit: ""Unit A"" – but the key is Unit, so should it be ""A"" or ""Unit A""? The example says ""Unit A"" in the address, so probably ""A"" is the unit, but the address says ""Unit A"". Wait, the user's example might have ""Unit A"" as the unit part. So Unit should be ""A"" or ""Unit A""? The instruction says to parse the address. The address is ""1524 Unit A"", so ""Unit A"" is the unit designation. But the key is ""Unit"", so maybe just ""A"". Wait, but sometimes addresses list ""Unit A"" as the unit. However, the standard is to have the unit number without ""Unit"". But the problem says to parse as given. Wait, the user's example might have ""Unit A"" as part of the address, so the Unit field should be ""A"". But the problem says ""Unit"" key, so maybe ""A"" is the value. Let me think. For example, if the address is ""123 Main St Unit 5"", then Unit would be ""5"". So here, ""Unit A"" would mean Unit is ""A"". So Unit: ""A"".
+
+But the address is written as ""1524 Unit A"", so the ""Unit A"" is part of the address. So Number is 1524, Unit is A. The rest are empty.
+
+City and Zip are missing, so they should be empty strings. State is ""CA"".
+
+Let me confirm all keys:
+
+Number: ""1524""
+
+PreDir: """"
+
+StreetName: """"
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: ""A""
+
+City: """"
+
+State: ""CA""
+
+Zip: """"
+
+Wait, but the user said ""State should be 'CA'"". So even if the address doesn't have a state, we set it to CA. So State is ""CA"".
+
+Double-checking: the address given is ""1524 Unit A"". There's no street name, so StreetName and StreetType are empty. No directions, so PreDir and PostDir empty. Unit is ""A"" (since ""Unit A"" implies the unit is A). City and Zip not provided, so empty.
+
+Yes, that seems right. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""1524"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": ""A"",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": """"
+}",
+11606,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+4859,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing request. The user provided the address ""4859"" and wants it parsed into a specific JSON format with certain keys. Let me break this down.
+
+First, the required keys are: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State must be ""CA"", and if any part is unknown, use an empty string.
+
+The address given is just ""4859"". That's a number, but it's missing all the other components. Let me think. In standard address parsing, a number like 4859 would typically be the street number. So ""Number"" would be ""4859"". 
+
+Now, checking the other fields. PreDir (prefix direction like N, S, E, W) isn't present here, so that's an empty string. StreetName would be the name of the street, but since there's no street name given, it's empty. StreetType (like St, Ave, Rd) is also missing, so empty. PostDir (suffix direction) is missing, so empty. Unit (like apartment number) isn't there, so empty. City and Zip are also not provided, so they should be empty strings. State is specified to be ""CA"", so that's set to ""CA"".
+
+Wait, the user said ""State should be 'CA'"". So even if the address doesn't mention it, we have to set State to ""CA"". So that's straightforward.
+
+Let me verify each key:
+
+- Number: 4859 → correct.
+- PreDir: not present → """"
+- StreetName: not present → """"
+- StreetType: not present → """"
+- PostDir: not present → """"
+- Unit: not present → """"
+- City: not present → """"
+- State: ""CA"" (as per instruction)
+- Zip: not present → """"
+
+So the JSON should have all these fields with the appropriate values. Let me make sure I didn't miss anything. The address is just a number, so all the other parts are missing. The user said to use exactly those keys, so I need to include all of them, even if they're empty.
+
+Double-checking the instructions: ""If unknown, use """"."" So all the missing fields are empty strings. State is set to ""CA"" regardless. So the JSON should look like:
+
+{
+  ""Number"": ""4859"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": """"
+}
+
+Wait, but the user said ""Return JSON only, no explanation."" So I shouldn't add any comments, just the JSON. Let me make sure the keys are spelled correctly as per the instruction: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Yes, all match.
+
+No typos in the keys. The State is ""CA"" as specified. All other fields are empty strings. The number is ""4859"" as a string, since it's part of an address. Even though it's a number, in JSON it's a string. The user didn't specify to convert it to a number, so keeping it as a string is safe.
+
+Alright, that should be it. Let me confirm once more. The address is ""4859"", so Number is ""4859"", all others empty except State is ""CA"". Yep, that's correct.
+</think>
+
+{
+  ""Number"": ""4859"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": """"
+}"
+Los Angeles 90063,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing request. The user provided ""Los Angeles 90063"" and wants it converted to JSON with specific keys. First, I need to recall the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+Hmm, the address given is just ""Los Angeles 90063"". Wait, Los Angeles is a city, and 90063 is a zip code. But the standard address format usually has a street number, street name, etc. Here, there's no street number or name mentioned. The user said if unknown, use empty strings.
+
+So, breaking it down: City should be ""Los Angeles"", State is specified to be ""CA"", Zip is ""90063"". The other fields like Number, PreDir, StreetName, StreetType, PostDir, Unit are all missing. So they should be empty strings.
+
+Wait, the user said ""State should be 'CA'"". So even though the address doesn't mention the state, I have to set State to ""CA"". That's important. So State: ""CA"".
+
+Let me check each key:
+
+- Number: Not present, so """"
+- PreDir: Not present, """"
+- StreetName: Not present, """"
+- StreetType: Not present, """"
+- PostDir: Not present, """"
+- Unit: Not present, """"
+- City: ""Los Angeles""
+- State: ""CA""
+- Zip: ""90063""
+
+Wait, the address is ""Los Angeles 90063"", so the city is Los Angeles, zip is 90063. So City is ""Los Angeles"", Zip is ""90063"". All other fields are empty.
+
+I need to make sure that the JSON uses exactly those keys. Let me confirm the keys again: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+Yes. So the JSON should have all those keys with the appropriate values. Since the user said to return JSON only, no explanations, I need to make sure there's no extra text.
+
+Double-checking: State must be ""CA"", so even though the address doesn't have it, we set it to CA. The zip is 90063, which is a valid Los Angeles zip code. So that's correct.
+
+No street info, so all the street-related fields are empty. Unit is also empty. So the JSON should look like:
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Los Angeles"",
+  ""State"": ""CA"",
+  ""Zip"": ""90063""
+}
+
+Wait, but the user said ""Return JSON only, no explanation."" So I shouldn't add any comments or anything. Just the JSON.
+
+Let me make sure all keys are spelled correctly as per the instructions. The user listed them as Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Yes, that's correct.
+
+So the final JSON should have those keys with the values I determined. I think that's it. No mistakes here.
+</think>
+
+{""Number"":"""",""PreDir"":"""",""StreetName"":"""",""StreetType"":"""",""PostDir"":"""",""Unit"":"""",""City"":""Los Angeles"",""State"":""CA"",""Zip"":""90063""}"
+Los Angeles 90061,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing request. The user provided ""Los Angeles 90061"" and wants it converted to JSON with specific keys. First, I need to recall the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+Hmm, the address given is just ""Los Angeles 90061"". Wait, Los Angeles is a city, and 90061 is a zip code. But the standard address format usually has a street number, street name, etc. Here, there's no street number or name mentioned. So all the fields related to the street (Number, PreDir, StreetName, StreetType, PostDir, Unit) should be empty strings.
+
+The City should be ""Los Angeles"", State is specified to be ""CA"", and Zip is ""90061"". Let me double-check the requirements. The user said if unknown, use """". So since there's no street info, all those fields are empty. State must be ""CA"" regardless, even though the address doesn't specify it. The zip code is 90061, which is a valid Los Angeles zip.
+
+Wait, the user said ""State should be 'CA'"". So even if the address didn't mention it, I have to set State to ""CA"". So City is ""Los Angeles"", State ""CA"", Zip ""90061"". All other fields are empty.
+
+Let me make sure I'm not missing anything. The address is ""Los Angeles 90061"" – no numbers, no street names. So Number, PreDir, etc., all empty. The user said to use exactly those keys. So the JSON should have all the keys with the correct values. Let me structure it:
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Los Angeles"",
+  ""State"": ""CA"",
+  ""Zip"": ""90061""
+}
+
+Yes, that looks right. I need to make sure there are no extra fields and that the keys are spelled exactly as specified. Also, the State is set to ""CA"" as instructed. The zip code is 90061, which is correct for Los Angeles. Alright, this should be the correct JSON.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Los Angeles"",
+  ""State"": ""CA"",
+  ""Zip"": ""90061""
+}"
+Lawndale 90260,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing problem. The user provided the address ""Lawndale 90260"" and wants it parsed into a specific JSON format with certain keys. Let me break this down step by step.
+
+First, I need to recall the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as per the instructions. If any part is unknown, use an empty string.
+
+Looking at the address ""Lawndale 90260"", I notice that Lawndale is a city name in California. The number 90260 is a zip code. Wait, but in standard address formats, the zip code usually comes after the city. So ""Lawndale"" is the city, and ""90260"" is the zip code. But the user's example might be a bit different.
+
+Wait, the address is written as ""Lawndale 90260"". Typically, addresses have the street number first, then the street name, city, state, zip. But here, it's city followed by zip. So maybe ""Lawndale"" is the city, and ""90260"" is the zip. But the problem is that the user might have mixed up the order. Let me check: Lawndale is a city in Los Angeles County, CA, and its zip code is 90260. So the address is just the city and zip, which is a bit unusual for a full address, but maybe that's what's given.
+
+So, breaking it down:
+
+- City: Lawndale
+- Zip: 90260
+- State: CA (as specified)
+
+Now, the other fields: Number, PreDir, StreetName, StreetType, PostDir, Unit. Since the address provided is just ""Lawndale 90260"", there's no street number, street name, etc. So all those fields should be empty strings.
+
+Wait, but sometimes ""Lawndale"" could be a street name, but in this case, Lawndale is a city. For example, ""Lawndale"" is a city in California, so it's the city name. So the address is missing the street address, just giving the city and zip. So the parser should fill in City as ""Lawndale"", Zip as ""90260"", State as ""CA"", and all other fields as empty.
+
+Let me confirm: the user said ""Parse this address into JSON. Use exactly these keys... State should be 'CA'."" So even if the address doesn't have a state, we have to set it to CA. So State is ""CA"".
+
+So the JSON should have:
+
+City: ""Lawndale""
+
+Zip: ""90260""
+
+State: ""CA""
+
+All other fields: empty strings.
+
+Let me check if ""90260"" is a valid zip code. Yes, Lawndale, CA has zip code 90260. So that's correct.
+
+So the parsed JSON would be:
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Lawndale"",
+  ""State"": ""CA"",
+  ""Zip"": ""90260""
+}
+
+Wait, but the user said ""Return JSON only, no explanation."" So I need to make sure that the JSON is correctly formatted with the keys as specified. Let me double-check each key:
+
+- Number: empty (no street number)
+- PreDir: empty (no prefix like N, S, etc.)
+- StreetName: empty (no street name)
+- StreetType: empty (no type like St, Ave)
+- PostDir: empty (no suffix like N, S)
+- Unit: empty (no apartment number)
+- City: Lawndale
+- State: CA
+- Zip: 90260
+
+Yes, that seems right. The address given is just the city and zip, so all the street-related fields are empty. The State is set to CA as instructed.
+
+I think that's all. Let me make sure there's no other possible interpretation. If someone mistakenly thought ""Lawndale"" was a street, but since it's a city name, it's better to treat it as the city. The zip code 90260 is associated with Lawndale, so that's the city. So the parsing is correct.
+</think>
+
+{""Number"": """", ""PreDir"": """", ""StreetName"": """", ""StreetType"": """", ""PostDir"": """", ""Unit"": """", ""City"": ""Lawndale"", ""State"": ""CA"", ""Zip"": ""90260""}"
+2837 South El Monte 91733,2837,South,El Monte,,,,El Monte,CA,91733,[],0,False,"['StreetType', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""2837 South El Monte 91733"" and wants it parsed into specific JSON keys. First, I need to break down the address components.
+
+Starting with the number: ""2837"" is clearly the street number. So Number should be ""2837"".
+
+Next, PreDir. That's the prefix direction like North, South, East, West. The address has ""South"" before the street name, so PreDir should be ""South"".
+
+StreetName is ""El Monte"". Wait, ""El Monte"" is the street name here. So StreetName is ""El Monte"".
+
+StreetType: Hmm, the address doesn't have a standard type like Ave, St, Rd. It just says ""El Monte"", which is a street name. So StreetType should be empty, but maybe the user expects it to be part of the name. Wait, the example given in the problem statement might have a StreetType, but here it's not present. So I'll leave it as empty string.
+
+PostDir: That's the suffix direction after the street name, like ""North"" or ""South"". But in this case, after ""El Monte"" there's no direction, so PostDir is empty.
+
+Unit: The address doesn't mention any unit number, like apartment or suite. So Unit is empty.
+
+City: The address doesn't specify a city. Wait, but the user said State should be ""CA"", but the city is missing. Wait, the address is ""2837 South El Monte 91733"". El Monte is a city in California, right? So City should be ""El Monte""? Wait, but ""El Monte"" is part of the street name. Wait, no. Wait, ""El Monte"" is a city in Los Angeles County, CA. But the address is written as ""2837 South El Monte"", which might mean the street name is ""El Monte"", and the city is El Monte. Wait, but the user's example might have the city as part of the address. Wait, the address given is ""2837 South El Monte 91733"". The 91733 is the zip code. So the city is probably El Monte, but the street name is ""El Monte"" as well. Wait, but in reality, El Monte is a city, so the street name might be something else. Wait, maybe the address is 2837 South El Monte Street, but it's written as ""El Monte"" as the street name. Hmm. But the user's instruction says to parse it as given. So the address is ""2837 South El Monte 91733"". So ""El Monte"" is the street name, and the city would be El Monte? Wait, but the zip code 91733 is for El Monte, CA. So the city should be El Monte. Wait, but the problem says to use the keys provided. Let's check the keys: City is a key. So City should be ""El Monte"", but wait, the address has ""El Monte"" as part of the street. Wait, maybe the street name is ""El Monte"", and the city is El Monte. But that's a bit confusing. Wait, in reality, El Monte is a city, so the address would be in El Monte, so City is El Monte. But the street name might be something else. Wait, but the address given is ""2837 South El Monte"", so ""El Monte"" is the street name. So the city would be El Monte. Wait, but the user might have made a mistake, but I have to go by the input. So City should be ""El Monte"".
+
+State is specified to be ""CA"", so State: ""CA"".
+
+Zip is 91733.
+
+Wait, but let's confirm. The address is ""2837 South El Monte 91733"". So the zip is 91733. So Zip: ""91733"".
+
+Now, checking each key:
+
+Number: 2837
+
+PreDir: South
+
+StreetName: El Monte
+
+StreetType: (since there's no type like Ave, St, etc., it's empty)
+
+PostDir: (no direction after, so empty)
+
+Unit: (no unit, empty)
+
+City: El Monte (since the city is El Monte, CA)
+
+State: CA
+
+Zip: 91733
+
+Wait, but the problem says ""If unknown, use """"."" So if the city is not specified, but in this case, the address ends with the zip code, and the city is El Monte. But the address as given doesn't have a separate city field. However, the zip code 91733 is for El Monte, so the city should be El Monte. So City: ""El Monte"".
+
+Wait, but the address is written as ""2837 South El Monte 91733"", so ""El Monte"" is part of the street name. Wait, but in reality, El Monte is a city. So maybe the street name is ""South El Monte"", but that's not standard. Wait, maybe the street name is ""El Monte"", and the city is El Monte. So the address is in the city of El Monte. So City should be ""El Monte"".
+
+But let's check: If the address was ""123 Main St, El Monte, CA 91733"", then City would be El Monte. But here, it's written as ""2837 South El Monte 91733"", so the city is implied by the zip code. So City: ""El Monte"".
+
+So putting it all together:
+
+Number: ""2837""
+
+PreDir: ""South""
+
+StreetName: ""El Monte""
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: ""El Monte""
+
+State: ""CA""
+
+Zip: ""91733""
+
+Wait, but the StreetName is ""El Monte"", and City is also ""El Monte"". That's possible if the street name is ""El Monte"" and the city is El Monte. For example, a street named after the city. So that's acceptable.
+
+Double-checking all keys:
+
+- Number: 2837 ✔️
+
+- PreDir: South ✔️
+
+- StreetName: El Monte ✔️
+
+- StreetType: (no type, so empty) ✔️
+
+- PostDir: (no direction after, so empty) ✔️
+
+- Unit: (no unit) ✔️
+
+- City: El Monte ✔️
+
+- State: CA (as specified) ✔️
+
+- Zip: 91733 ✔️
+
+Yes, this seems correct. So the JSON should have these values.
+</think>
+
+{
+  ""Number"": ""2837"",
+  ""PreDir"": ""South"",
+  ""StreetName"": ""El Monte"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""El Monte"",
+  ""State"": ""CA"",
+  ""Zip"": ""91733""
+}",
+3787 Long Beach 90846,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+75 Avalon 90704,75,,Avalon,,,,,CA,90704,['City'],1,True,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided the address ""75 Avalon 90704"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Looking at the address: ""75 Avalon 90704"". The number part is straightforward—it's ""75"". Then there's ""Avalon"", which is likely the street name. The next part is ""90704"", which I recognize as a ZIP code. But wait, the user specified that the State should be ""CA"", so I don't need to worry about that part.
+
+Now, checking the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Let's go through each.
+
+Number: 75. That's clear.
+
+PreDir: This would be a direction like North or South before the street name. The address doesn't have any, so it should be empty.
+
+StreetName: Avalon. That's the main part of the street name.
+
+StreetType: The address doesn't mention a type like Street, Avenue, etc. So this should be empty.
+
+PostDir: Direction after the street name, like East or West. Not present here, so empty.
+
+Unit: Sometimes addresses have units like apartment numbers. The address given doesn't have any, so empty.
+
+City: The address doesn't specify a city. The user said to use """" if unknown, so city is empty.
+
+State: The user explicitly said to use ""CA"", so that's set.
+
+Zip: The last part is 90704, which is the ZIP code. So Zip should be ""90704"".
+
+Wait, but the ZIP code is usually five digits, and 90704 is a valid ZIP for California. So that's correct.
+
+Let me double-check. The address is ""75 Avalon 90704"". So Number is 75, StreetName is Avalon, Zip is 90704. All other fields are empty except State as CA.
+
+Wait, but sometimes ZIP codes can be part of the city, but in this case, the user provided the ZIP as part of the address, so it's safe to put it in the Zip field. The city is missing, so it's empty.
+
+So putting it all together:
+
+Number: ""75""
+
+PreDir: """"
+
+StreetName: ""Avalon""
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: """"
+
+State: ""CA""
+
+Zip: ""90704""
+
+I need to make sure there are no other parts. The address doesn't have a city name, so City is empty. StreetType is missing, so empty. All other fields as per the instructions.
+
+Yes, this should be correct. Let me confirm the keys again to match exactly: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. All present. State is CA. Zip is 90704. The rest are empty strings.
+
+Okay, that's all. Time to format it as JSON.
+</think>
+
+{
+  ""Number"": ""75"",
+  ""PreDir"": """",
+  ""StreetName"": ""Avalon"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""90704""
+}",
+13855 Unit 7 Paramount 90723,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing. The user provided the address ""13855 Unit 7 Paramount 90723"" and wants it parsed into specific JSON keys. First, I need to break down each part.
+
+Starting with the number: ""13855"" seems like the street number. Then ""Unit 7"" is probably the unit number. The city is ""Paramount"", and the zip code is ""90723"". The state should be ""CA"" as specified.
+
+Wait, the address format usually has Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Let me check each part.
+
+""13855"" is the number. There's no pre-direction (like N, S, E, W) mentioned, so PreDir is empty. StreetName would be the name of the street, but here it's ""Paramount"" which is the city. Wait, the address is ""13855 Unit 7 Paramount 90723"". So ""Paramount"" is the city, not the street. So the street name might be missing? Wait, maybe the address is structured as 13855 (number), Unit 7 (unit), Paramount (city), 90723 (zip). But where's the street name?
+
+Hmm, maybe the street name is missing here. The user said if unknown, use """". So StreetName would be empty. Similarly, StreetType (like St, Ave) isn't present. PreDir and PostDir are also empty.
+
+So breaking it down:
+
+Number: 13855
+
+PreDir: (empty)
+
+StreetName: (empty)
+
+StreetType: (empty)
+
+PostDir: (empty)
+
+Unit: 7 (since it's ""Unit 7"", so the unit number is 7)
+
+City: Paramount
+
+State: CA (as specified)
+
+Zip: 90723
+
+Wait, the address says ""Unit 7 Paramount 90723"". So ""Unit 7"" is the unit, then ""Paramount"" is the city, and ""90723"" is the zip. So the street part is missing. So StreetName and StreetType would be empty.
+
+Let me confirm. In standard addresses, it's like 123 Main St, City, State Zip. Here, it's 13855 Unit 7 Paramount 90723. So the ""13855"" is the number, ""Unit 7"" is the unit, ""Paramount"" is the city, ""90723"" is the zip. So the street name isn't provided. So StreetName and StreetType are empty.
+
+So the JSON should have:
+
+Number: ""13855""
+
+PreDir: """"
+
+StreetName: """"
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: ""7""
+
+City: ""Paramount""
+
+State: ""CA""
+
+Zip: ""90723""
+
+Wait, the user said ""Unit 7"" so the Unit key should be ""7"", not ""Unit 7"". So Unit is ""7"".
+
+Yes, that's correct. So Unit is ""7"".
+
+Double-checking all keys. The user specified exactly those keys. So all the missing parts are empty strings. State is ""CA"" as given.
+
+So the JSON should be:
+
+{
+  ""Number"": ""13855"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": ""7"",
+  ""City"": ""Paramount"",
+  ""State"": ""CA"",
+  ""Zip"": ""90723""
+}
+
+Wait, the zip code is 90723, which is a valid zip for Paramount, CA. So that's correct.
+
+I think that's all. Let me make sure there's no other parts. The address doesn't have any directions (like N, S), so PreDir and PostDir are empty. Street name and type are missing. Unit is 7. City is Paramount. State CA. Zip 90723. Yep, that's all.
+</think>
+
+{
+  ""Number"": ""13855"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": ""7"",
+  ""City"": ""Paramount"",
+  ""State"": ""CA"",
+  ""Zip"": ""90723""
+}"
+13100 Sylmar 91342,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+1002 Pomona 91766,1002,,Pomona,,,,,CA,91766,['City'],1,True,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing problem. The user provided an address: ""1002 Pomona 91766"" and wants it parsed into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, the required keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State must be ""CA"", so I don't have to worry about that part. If any part is unknown, I should leave it as an empty string.
+
+Looking at the address: ""1002 Pomona 91766"". Let's split it. The first part is usually the street number. So ""1002"" is likely the Number. Then ""Pomona"" – that's probably the StreetName. But wait, sometimes StreetType comes after the name, like ""Avenue"" or ""Street"". Here, ""Pomona"" might be the name, and maybe ""91766"" is the zip code. Wait, the zip code is usually a 5-digit number. 91766 is a valid zip code, I think. So the zip would be 91766.
+
+Wait, but the address is written as ""1002 Pomona 91766"". So maybe ""Pomona"" is the street name, and 91766 is the zip. But where's the city? The user didn't provide a city, so City should be empty. Let me check the keys again. The keys include City, so if it's not in the address, it's """".
+
+Wait, the address given is ""1002 Pomona 91766"". Let's see. In standard address format, it's usually Number StreetName StreetType City State Zip. But here, there's no StreetType mentioned. So ""Pomona"" might be the StreetName, and maybe the StreetType is missing. So StreetType would be empty.
+
+Also, PreDir (prefix direction like North, South) and PostDir (suffix direction like East, West) are not present here. So those should be empty.
+
+Unit is for apartment numbers or something, but there's no unit mentioned, so Unit is """".
+
+City: The address doesn't have a city name, so City is """".
+
+State is given as ""CA"", so that's fixed.
+
+Zip is 91766.
+
+Wait, but the zip code is part of the address. So the address is ""1002 Pomona 91766"". So the zip is 91766. Let me confirm if 91766 is a valid zip code. A quick check: 91766 is a zip code in California, specifically for Pomona, CA. Wait, but the city might be Pomona. Wait, the address says ""Pomona"" as part of the street, but maybe the city is Pomona. Wait, but the user's address is ""1002 Pomona 91766"". If ""Pomona"" is the street name, then the city might be missing. But sometimes, in addresses, the city name is part of the street. Wait, but ""Pomona"" is a city in California. So maybe the address is 1002 Pomona Street, Pomona, CA 91766. But the user's input is ""1002 Pomona 91766"", so maybe they omitted the street type and city.
+
+Wait, the problem says to parse the given address. The given address is ""1002 Pomona 91766"". So ""Pomona"" is the street name, and 91766 is the zip. But the city is missing. So City would be empty. But wait, if the zip code 91766 is for Pomona, CA, then maybe the city is Pomona. But the user's address doesn't have ""Pomona"" as the city, it's part of the street. Hmm. But the problem states to use the address as given. So if the address doesn't include the city name, then City should be empty. However, sometimes in addresses, the city name is part of the street, but that's not standard. For example, ""123 Main Street, Pomona, CA"" would have Pomona as the city. But here, it's ""1002 Pomona 91766"", so maybe ""Pomona"" is the street name, and the city is missing. So City would be empty.
+
+Wait, but the zip code 91766 is for Pomona, CA. So maybe the city is Pomona. But the problem says to parse the given address, not to infer. So if the address doesn't have ""Pomona"" as the city, but as part of the street, then City should be empty. But maybe the user made a typo and omitted the city. However, the instructions say to use the address as given. So I should not assume the city is Pomona. So City is """".
+
+Let me check the keys again. The keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+So:
+
+Number: 1002
+
+PreDir: (no direction prefix, so """")
+
+StreetName: Pomona
+
+StreetType: (no street type like St, Ave, so """")
+
+PostDir: (no direction suffix, so """")
+
+Unit: (no unit, so """")
+
+City: (not present, so """")
+
+State: CA (as specified)
+
+Zip: 91766
+
+Wait, but the zip code is 91766. So Zip should be ""91766"".
+
+Let me confirm if all parts are covered. The address is ""1002 Pomona 91766"". So splitting into Number (1002), StreetName (Pomona), Zip (91766). The rest are empty.
+
+Yes, that seems right. So the JSON should have those values.
+
+Wait, but sometimes ""Pomona"" could be the street type, but ""Pomona"" is a proper noun, so it's more likely the street name. Street types are like ""Avenue"", ""Street"", ""Boulevard"", etc. So ""Pomona"" is the name, so StreetName is ""Pomona"", StreetType is empty.
+
+So putting it all together:
+
+Number: ""1002""
+
+PreDir: """"
+
+StreetName: ""Pomona""
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: """"
+
+State: ""CA""
+
+Zip: ""91766""
+
+That should be the correct JSON.
+</think>
+
+{
+  ""Number"": ""1002"",
+  ""PreDir"": """",
+  ""StreetName"": ""Pomona"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""91766""
+}",
+2634 S La Cienega Ave Los Angeles 90034,2634,S,La Cienega,Ave,,,Los Angeles,CA,90034,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing problem. The user wants me to parse ""2634 S La Cienega Ave Los Angeles 90034"" into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, I need to identify each part of the address according to the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as specified, so I don't have to worry about that part.
+
+Looking at the address: ""2634 S La Cienega Ave Los Angeles 90034"".
+
+Starting with the Number. The first part is ""2634"", which is clearly the street number. So Number: ""2634"".
+
+Next, PreDir. That's the prefix direction, like North, South, East, West. Here, ""S"" stands for South, so PreDir should be ""S"".
+
+StreetName is ""La Cienega"". The address says ""La Cienega Ave"", so the street name is ""La Cienega"". Wait, sometimes ""Ave"" is part of the street type, so StreetName would be ""La Cienega"" and StreetType ""Ave"".
+
+StreetType: ""Ave"" is short for Avenue, so StreetType should be ""Ave"".
+
+PostDir: That's the suffix direction, like if there was a ""NE"" or something after the street name. In this case, after ""Ave"" there's no direction, so PostDir should be empty.
+
+Unit: The address doesn't mention any unit number, like apartment or suite, so Unit is """".
+
+City: ""Los Angeles"" is the city, so City: ""Los Angeles"".
+
+State: The user specified to use ""CA"", so State: ""CA"".
+
+Zip: The last part is ""90034"", so Zip: ""90034"".
+
+Let me double-check each part. Number: 2634. PreDir: S. StreetName: La Cienega. StreetType: Ave. PostDir: (empty). Unit: (empty). City: Los Angeles. State: CA. Zip: 90034.
+
+Wait, sometimes ""Ave"" is part of the street type, so ""La Cienega Ave"" would split into StreetName ""La Cienega"" and StreetType ""Ave"". That seems right. The ""S"" is the PreDir, so South. No PostDir. No unit. City is Los Angeles, State CA, Zip 90034.
+
+I think that's all. Let me make sure there's no other parts. The address is ""2634 S La Cienega Ave Los Angeles 90034"". So after ""Ave"" it's ""Los Angeles"", which is the city, then the zip. So yes, all parts are covered. No Unit mentioned, so leave it empty. State is fixed as CA. So the JSON should have all those values.
+</think>
+
+{
+  ""Number"": ""2634"",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""La Cienega"",
+  ""StreetType"": ""Ave"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Los Angeles"",
+  ""State"": ""CA"",
+  ""Zip"": ""90034""
+}",
+1243 S Maple Ave Los Angeles 90015,1243,S,Maple,Ave,,,Los Angeles,CA,90015,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user wants me to break down ""1243 S Maple Ave Los Angeles 90015"" into specific JSON keys. First, I need to recall the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State must be ""CA"", so I'll set that regardless.
+
+Looking at the address: ""1243 S Maple Ave Los Angeles 90015"". Let's split it. The number is usually the first part, so ""1243"" should be Number. Then ""S"" is a direction, probably PreDir (since it's before the street name). StreetName would be ""Maple"", StreetType ""Ave"". PostDir isn't present here, so that's empty. Unit isn't mentioned, so empty. City is ""Los Angeles"", Zip is ""90015"". State is ""CA"" as specified.
+
+Wait, ""Ave"" is the StreetType, right? So StreetName is ""Maple"", StreetType ""Ave"". PreDir is ""S"" (South). PostDir would be if there's a direction after, like ""N"" or ""E"", but here it's just ""Ave"", so PostDir is empty. Unit isn't there. City is Los Angeles, Zip 90015. State is CA. Let me double-check. The address format is typically Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. So yes, ""S"" is PreDir, ""Maple"" is StreetName, ""Ave"" is StreetType. The rest are as above. All seems to fit. No Unit, so empty string. State is CA. So the JSON should have all those fields with the correct values.
+</think>
+
+{
+  ""Number"": ""1243"",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Maple"",
+  ""StreetType"": ""Ave"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Los Angeles"",
+  ""State"": ""CA"",
+  ""Zip"": ""90015""
+}",
+353 Long Beach Grand Prix Circuit Long Beach 90802,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+425 Long Beach 90803,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+1515 A Prospect Ave San Gabriel 91776,1515,A,Prospect,Ave,,,San Gabriel,CA,91776,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address: ""1515 A Prospect Ave San Gabriel 91776"". I need to break it down into the specified JSON keys.
+
+First, the Number. The first part is ""1515"", so that's the street number. Then there's ""A"" which might be a pre-directional. Wait, sometimes ""A"" could be part of the street name, but in addresses, pre-directionals are like North, South, etc. But ""A"" isn't a standard direction. Hmm. Wait, maybe it's a unit or something else. Wait, the keys include PreDir, StreetName, StreetType, PostDir. So ""A"" might be the PreDir. Let me check. For example, ""123 N Main St"" would have PreDir as ""N"", StreetName ""Main"", StreetType ""St"". So here, ""A Prospect Ave"" – ""A"" is probably the PreDir. So PreDir is ""A"".
+
+Next, StreetName. After PreDir, it's ""Prospect"", so StreetName is ""Prospect"". Then StreetType is ""Ave"" for Avenue. Then PostDir would be empty here, since there's no post-directional like ""E"" or ""W"". So PostDir is """".
+
+Unit: The address doesn't mention a unit like ""Apt 123"" or ""Unit 5"", so Unit should be """".
+
+City is ""San Gabriel"". State should be ""CA"" as per instructions. Zip is ""91776"".
+
+Wait, let me double-check. The address is ""1515 A Prospect Ave San Gabriel 91776"". So after ""Ave"" comes ""San Gabriel"", which is the city. Then the zip code. So City is ""San Gabriel"", State ""CA"", Zip ""91776"".
+
+Wait, but sometimes cities can have multiple words, but ""San Gabriel"" is a city name, so that's correct. So putting it all together:
+
+Number: 1515
+
+PreDir: A
+
+StreetName: Prospect
+
+StreetType: Ave
+
+PostDir: (empty)
+
+Unit: (empty)
+
+City: San Gabriel
+
+State: CA
+
+Zip: 91776
+
+Check if all keys are covered. Yes. State is specified to be ""CA"", so even if the address didn't have it, we use ""CA"". The address provided doesn't have a state, but the instruction says to use ""CA"", so that's correct.
+
+Make sure there are no typos. ""Ave"" is correct for Avenue. ""Prospect"" is the street name. ""A"" as PreDir. All seems right. No unit mentioned. So the JSON should have all these values.
+</think>
+
+{
+  ""Number"": ""1515"",
+  ""PreDir"": ""A"",
+  ""StreetName"": ""Prospect"",
+  ""StreetType"": ""Ave"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""San Gabriel"",
+  ""State"": ""CA"",
+  ""Zip"": ""91776""
+}",
+33 E Pasadena 91103,33,E,Pasadena,,,,Pasadena,CA,91103,[],0,False,"['StreetType', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""33 E Pasadena 91103"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the Number: The first part is ""33"", so that's straightforward. Number should be ""33"".
+
+Next, PreDir. That's the prefix direction like North, South, East, West. Here, ""E"" stands for East, so PreDir should be ""E"".
+
+StreetName is the name of the street. The address says ""Pasadena"", so StreetName is ""Pasadena"".
+
+StreetType is the type of street, like Street, Avenue, etc. But in this address, there's no StreetType mentioned after Pasadena. Wait, sometimes ""Pasadena"" could be the street name, but maybe it's part of the city? Wait, the city is usually separate. Wait, the address is ""33 E Pasadena 91103"". The 91103 is the zip code. So Pasadena might be the street name here. But typically, street types are like ""St"", ""Ave"", etc. Since there's no street type here, maybe it's omitted. So StreetType should be empty.
+
+PostDir is the suffix direction, like East, West, but since PreDir is already East, maybe there's no PostDir. So PostDir is """".
+
+Unit: The address doesn't mention any unit number, like apartment or suite, so Unit should be """".
+
+City: The city isn't explicitly stated here. Wait, the address is ""33 E Pasadena 91103"". Pasadena is a city in California, so City should be ""Pasadena"". But wait, sometimes the city is separate. Wait, the zip code 91103 is for Pasadena, CA. So City is ""Pasadena"".
+
+State: The user specified to use ""CA"" for State, so State is ""CA"".
+
+Zip: The last part is ""91103"", so Zip is ""91103"".
+
+Wait, let me double-check. The address is ""33 E Pasadena 91103"". So:
+
+- Number: 33
+- PreDir: E
+- StreetName: Pasadena
+- StreetType: (none, so empty)
+- PostDir: (none)
+- Unit: (none)
+- City: Pasadena (since 91103 is Pasadena's zip)
+- State: CA
+- Zip: 91103
+
+Wait, but sometimes ""Pasadena"" could be the street name, and the city might be something else. But 91103 is the zip code for Pasadena, CA. So the city is Pasadena. So City should be ""Pasadena"".
+
+Wait, but the address as given is ""33 E Pasadena 91103"". So the structure is Number, PreDir, StreetName, Zip. So StreetName is ""Pasadena"", and the city is implied by the zip. So City is ""Pasadena"".
+
+Yes, that makes sense. So all the fields should be filled accordingly. Let me confirm each key:
+
+Number: 33
+
+PreDir: E
+
+StreetName: Pasadena
+
+StreetType: (empty)
+
+PostDir: (empty)
+
+Unit: (empty)
+
+City: Pasadena
+
+State: CA
+
+Zip: 91103
+
+Everything seems to fit. The user said if unknown, use """", so all the missing fields are empty. State is specified as CA, so that's set. The zip is 91103. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""33"",
+  ""PreDir"": ""E"",
+  ""StreetName"": ""Pasadena"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Pasadena"",
+  ""State"": ""CA"",
+  ""Zip"": ""91103""
+}",
+1050 Long Beach 90807,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+La Habra 90631,,,,,,,La Habra,CA,90631,['StreetName'],1,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,"Okay, let's tackle this address parsing problem. The user provided the address ""La Habra 90631"" and wants it parsed into a specific JSON format with certain keys. Let me break this down step by step.
+
+First, I need to recall the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as per the instructions. If any part is unknown, use an empty string.
+
+Looking at the address ""La Habra 90631"", I notice that ""La Habra"" is a city name. Wait, but the user might have mixed up the city and zip code. Typically, addresses have the city followed by the zip code. So ""La Habra"" is the city, and ""90631"" is the zip code. But wait, the zip code for La Habra, CA is actually 90631. So the city is La Habra, and the zip is 90631.
+
+Now, checking the required keys. The City should be ""La Habra"", Zip should be ""90631"". The State is specified to be ""CA"". 
+
+But wait, the address given is ""La Habra 90631"". There's no street number, street name, etc. So all the other fields like Number, PreDir, StreetName, StreetType, PostDir, Unit should be empty strings.
+
+Let me confirm: In a standard address, the structure is usually [Number] [PreDir] [StreetName] [StreetType] [PostDir], [Unit], [City], [State], [Zip]. But here, the address provided is just the city and zip. So there's no street information. Therefore, all the street-related fields should be empty.
+
+So, Number: """", PreDir: """", StreetName: """", StreetType: """", PostDir: """", Unit: """", City: ""La Habra"", State: ""CA"", Zip: ""90631"".
+
+Wait, but the user said ""State should be 'CA'"". So even if the address didn't specify, we have to set State to ""CA"". But in this case, La Habra is in California, so that's correct.
+
+Double-checking the zip code: 90631 is indeed the zip code for La Habra, CA. So that's correct.
+
+So all the fields except City, State, and Zip should be empty. Let me make sure I'm not missing anything. The address is ""La Habra 90631"", so no street number, no street name, etc. So yes, all those fields are empty.
+
+Therefore, the JSON should have City as ""La Habra"", State as ""CA"", Zip as ""90631"", and all others as empty strings.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+E Lambert Rd Fullerton 92835,,E,Lambert,Rd,,,Fullerton,CA,92835,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""E Lambert Rd Fullerton 92835"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the address: ""E Lambert Rd Fullerton 92835"". Let's split it into parts. The ""E"" probably stands for East, which would be the PreDir (pre-directional). Then ""Lambert"" is the street name, ""Rd"" is the street type (Road). ""Fullerton"" is the city, and ""92835"" is the zip code. The state should be ""CA"" as specified.
+
+Wait, the user said to use ""CA"" for the state, so I don't need to check that. Now, checking for each key:
+
+- Number: The address doesn't have a house number, so it should be empty.
+- PreDir: ""E"" for East, so that's ""E"".
+- StreetName: ""Lambert"".
+- StreetType: ""Rd"" for Road.
+- PostDir: There's no post-directional like ""North"" or ""South"", so empty.
+- Unit: No unit number mentioned, so empty.
+- City: ""Fullerton"".
+- State: ""CA"" as given.
+- Zip: ""92835"".
+
+Let me double-check. The address is ""E Lambert Rd Fullerton 92835"". So ""E"" is PreDir, ""Lambert"" is StreetName, ""Rd"" is StreetType. City is Fullerton, Zip 92835. No unit, no PostDir. All other fields are empty. State is CA. That seems right. I need to make sure not to add any extra info, just the keys specified. Let me confirm the keys again: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Yep, all covered. So the JSON should have those keys with the corresponding values. No numbers, so Number is empty string. PreDir is ""E"", etc. Alright, that should be it.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""E"",
+  ""StreetName"": ""Lambert"",
+  ""StreetType"": ""Rd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Fullerton"",
+  ""State"": ""CA"",
+  ""Zip"": ""92835""
+}",
+S Harbor Blvd La Habra 90631,,S,Harbor,Blvd,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided ""S Harbor Blvd La Habra 90631"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the address: ""S Harbor Blvd La Habra 90631"". Let's split it into parts. The first part is ""S"", which is likely a directional prefix, so PreDir should be ""S"". Then ""Harbor Blvd"" – ""Harbor"" is the street name, ""Blvd"" is the street type. So StreetName is ""Harbor"", StreetType is ""Blvd"". 
+
+Next, ""La Habra"" is the city, so City is ""La Habra"". The state should be ""CA"" as per the instructions, so State is ""CA"". The zip code is ""90631"", so Zip is ""90631"". 
+
+Now, checking for other fields: Unit is empty, so it should be """". PostDir is the directional after the street, but here after ""Blvd"" there's no direction, so PostDir is """". 
+
+Wait, let me double-check. The address is ""S Harbor Blvd La Habra 90631"". So ""S"" is PreDir, ""Harbor"" is StreetName, ""Blvd"" is StreetType. Then ""La Habra"" is the city, zip is 90631. No unit mentioned, so Unit is empty. PostDir would be if there's a direction after the street, like ""S"" after Blvd, but here it's ""S"" before, so PostDir is empty. 
+
+State is specified to be ""CA"", so even if the address doesn't have it, we put ""CA"". 
+
+Let me confirm each key:
+
+Number: The address doesn't have a number, so it's empty. Wait, the user's example might have a number, but in this case, the address starts with ""S Harbor Blvd"", so there's no house number. So Number should be """".
+
+PreDir: ""S"" – correct.
+
+StreetName: ""Harbor""
+
+StreetType: ""Blvd""
+
+PostDir: """" (since there's no direction after the street type)
+
+Unit: """" (no unit mentioned)
+
+City: ""La Habra""
+
+State: ""CA""
+
+Zip: ""90631""
+
+Yes, that seems right. Let me check if ""Blvd"" is correctly parsed as StreetType. Yes, ""Blvd"" is short for Boulevard, so StreetType is ""Blvd"". 
+
+No other parts. So the JSON should have all these fields with the correct values. Make sure to use exactly the keys specified, and no extra fields. Also, state is always ""CA"" as per instructions, so even if the address didn't have it, we put ""CA"".
+
+Double-checking each part again. The address is ""S Harbor Blvd La Habra 90631"". Splitting:
+
+- S → PreDir
+
+- Harbor → StreetName
+
+- Blvd → StreetType
+
+- La Habra → City
+
+- 90631 → Zip
+
+No Number, Unit, PostDir. So all the empty fields are set to empty strings. State is ""CA"".
+
+Looks good. Now, format as JSON with those keys. No extra spaces or explanations, just the JSON.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Harbor"",
+  ""StreetType"": ""Blvd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+S Cypress St La Habra 90631,,S,Cypress,St,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""S Cypress St La Habra 90631"" and wants it converted into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, I need to identify each part of the address according to the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as specified, so I don't have to worry about that part.
+
+Looking at the address: ""S Cypress St La Habra 90631"". Let's split it into components. The first part is ""S"", which is likely the pre-directional (PreDir), like South. Then ""Cypress"" is the street name. ""St"" is the street type abbreviation for Street. ""La Habra"" is the city. ""90631"" is the zip code.
+
+Wait, but the address is written as ""S Cypress St La Habra 90631"". So ""S"" is PreDir, ""Cypress"" is StreetName, ""St"" is StreetType. Then ""La Habra"" is the city. The zip is 90631. There's no unit mentioned, so Unit should be empty. The State is given as CA, so that's straightforward.
+
+Let me check if ""St"" is correctly identified as StreetType. Yes, ""St"" is short for Street. So StreetType would be ""St"". PreDir is ""S"" for South. StreetName is ""Cypress"". City is ""La Habra"", Zip is ""90631"". Unit is missing, so empty string. State is ""CA"".
+
+Wait, the user said to use exactly those keys. Let me confirm each part:
+
+- Number: The address doesn't have a number, like 123. So Number should be empty.
+- PreDir: ""S"" (South)
+- StreetName: ""Cypress""
+- StreetType: ""St""
+- PostDir: Not present, so empty
+- Unit: Not present, empty
+- City: ""La Habra""
+- State: ""CA""
+- Zip: ""90631""
+
+Yes, that seems right. Let me check if ""S Cypress St"" is the street part. So ""S"" is PreDir, ""Cypress"" is StreetName, ""St"" is StreetType. Then the city follows. So the structure is correct.
+
+No unit mentioned, so Unit is empty. All other fields filled as per the address. State is fixed to CA. So the JSON should have all these values. Let me make sure there are no typos. ""La Habra"" is the city, correct. Zip code 90631 is valid for La Habra, CA.
+
+Double-checking each key:
+
+- Number: """" (no number given)
+- PreDir: ""S""
+- StreetName: ""Cypress""
+- StreetType: ""St""
+- PostDir: """"
+- Unit: """"
+- City: ""La Habra""
+- State: ""CA""
+- Zip: ""90631""
+
+Yes, that matches. So the JSON should be structured with these values. No extra fields, just the specified keys. Alright, that should be it.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Cypress"",
+  ""StreetType"": ""St"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+S Euclid St La Habra 90631,,S,Euclid,St,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""S Euclid St La Habra 90631"" and wants it broken down into specific JSON keys. First, I need to recall the standard address components.
+
+The keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State should be ""CA"" as per the instructions. If any part is unknown, use an empty string.
+
+Looking at the address: ""S Euclid St La Habra 90631"". Let's break it down.
+
+Starting with the street part. ""S Euclid St"" – ""S"" is likely the PreDir (pre-directional, like South). Then ""Euclid"" is the StreetName. ""St"" is the StreetType, which stands for Street. So PreDir: ""S"", StreetName: ""Euclid"", StreetType: ""St"".
+
+Next, ""La Habra"" is the city. So City: ""La Habra"".
+
+The zip code is ""90631"", so Zip: ""90631"".
+
+Now, checking for other components. Number – the address doesn't have a number, like ""123"", so Number should be empty. PreDir is ""S"", which we have. StreetName is ""Euclid"", StreetType ""St"". PostDir – there's no post-directional like ""E"" or ""W"", so empty. Unit – no unit number mentioned, so empty. State is specified to be ""CA"", so State: ""CA"".
+
+Wait, the user said ""State should be 'CA'"", so even if the address doesn't have it, we just put ""CA"". So State is ""CA"".
+
+Let me double-check each part. The address is ""S Euclid St La Habra 90631"". So:
+
+- S: PreDir
+- Euclid: StreetName
+- St: StreetType
+- La Habra: City
+- 90631: Zip
+
+No Number, PostDir, Unit. So all those are empty strings.
+
+Wait, sometimes addresses might have a number before the street, but here it's ""S Euclid St"", so the ""S"" is the direction, not the number. So Number is missing, so it's empty.
+
+Yes, so Number: """", PreDir: ""S"", StreetName: ""Euclid"", StreetType: ""St"", PostDir: """", Unit: """", City: ""La Habra"", State: ""CA"", Zip: ""90631"".
+
+Check if StreetType is ""St"" – yes, that's standard for Street. Sometimes it's ""Street"", but the abbreviation is acceptable here.
+
+State is given as CA, so even though the address doesn't have it, we use CA.
+
+Everything seems to fit. Let me make sure there's no other parts. The address ends with 90631, which is the zip. So all keys are covered.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Euclid"",
+  ""StreetType"": ""St"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+S Walnut St La Habra 90631,,S,Walnut,St,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing problem. The user wants me to parse ""S Walnut St La Habra 90631"" into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, the address is ""S Walnut St La Habra 90631"". I need to split this into the required fields: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as specified, so I don't have to worry about that part.
+
+Starting with the Number. In addresses, the number usually comes first. Here, ""S Walnut St"" – wait, ""S"" might be a direction, not the number. The number might be missing here. The address starts with ""S"", which is likely a pre-direction (like South), so the number might be absent. So Number would be empty.
+
+Next, PreDir. ""S"" stands for South, so PreDir should be ""S"".
+
+StreetName is ""Walnut"". The ""St"" is the street type, so ""Walnut"" is the name.
+
+StreetType is ""St"" for Street.
+
+PostDir would be empty here since there's no direction after the street name.
+
+Unit is usually something like ""Apt 123"" or ""Unit 5"", but there's no mention of that here, so Unit is empty.
+
+City is ""La Habra"".
+
+State is given as ""CA"", so that's straightforward.
+
+Zip is ""90631"".
+
+Wait, let me double-check. The address is ""S Walnut St La Habra 90631"". So ""S"" is PreDir, ""Walnut"" is StreetName, ""St"" is StreetType, then City is La Habra, Zip 90631. Number is missing, so it's empty. Unit is missing. PostDir is empty. State is CA.
+
+Let me confirm each part. In standard address parsing, the structure is usually:
+
+[Number] [PreDir] [StreetName] [StreetType] [PostDir] [City] [State] [Zip]
+
+But here, the number is missing. So the first part is ""S"" (PreDir), then ""Walnut"" (StreetName), ""St"" (StreetType), then City ""La Habra"", Zip ""90631"". So Number is empty, which is correct.
+
+Check if ""St"" is correctly identified as StreetType. Yes, ""St"" is short for Street.
+
+City is ""La Habra"", which is a city in California, so State is CA as specified.
+
+Zip is 90631, which is a valid zip code for La Habra.
+
+So putting it all together:
+
+Number: """"
+PreDir: ""S""
+StreetName: ""Walnut""
+StreetType: ""St""
+PostDir: """"
+Unit: """"
+City: ""La Habra""
+State: ""CA""
+Zip: ""90631""
+
+I need to make sure all keys are present and in the correct order. The user specified exactly those keys, so I'll list them as such. No extra fields, just the ones listed.
+
+Double-checking for any possible mistakes. Sometimes ""St"" could be confused with ""Street"" but here it's abbreviated, so StreetType should be ""St"". The city is correctly identified as La Habra. Zip code is correct. State is CA. All other fields are empty as they're not present in the address.
+
+Looks good. Now, format as JSON with those keys. No extra text, just the JSON.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Walnut"",
+  ""StreetType"": ""St"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+S Monte Vista St La Habra 90631,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: We are given the address: ""S Monte Vista St La Habra 90631""
+ We need to break it down into the specified keys.
+
+ Steps:
+ 1. The address has: ""S Monte Vista St La Habra 90631""
+ 2. We note that the state is to be ""CA"", so we'll set State to ""CA"".
+ 3. We'll break the address into parts.
+
+ Let's analyze:
+ - The last part is ""90631"", which is the zip code.
+ - The part before the zip is ""La Habra"", which is the city.
+ - The part before ""La Habra"" is ""St"", which is likely the street type (but note: ""St"" is an abbreviation for Street).
+ - However, note that the address is written as ""S Monte Vista St"", meaning:
+      S = PreDir (South)
+      Monte Vista = StreetName
+      St = StreetType (Street)
+
+ But note: the address string is ""S Monte Vista St"", so:
+   - ""S"" is the pre-directional (PreDir)
+   - ""Monte Vista"" is the street name (StreetName)
+   - ""St"" is the street type (StreetType)
+
+ Then we have ""La Habra"" (City) and ""90631"" (Zip).
+
+ However, note that the address does not have a unit (Unit) so we leave it as """".
+
+ Also, note that the state is to be set to ""CA"", so we don't look for it in the address.
+
+ Let's map:
+   Number: ? 
+   But wait, the address does not have a number? Actually, the address string we are given does not have a house number.
+
+ However, looking at the address: ""S Monte Vista St La Habra 90631""
+ It seems that the house number is missing. So we leave Number as """".
+
+ But note: sometimes the number might be implied? However, the problem says ""if unknown, use """".
+
+ So:
+   Number: """" (because it's not provided)
+   PreDir: ""S""
+   StreetName: ""Monte Vista""
+   StreetType: ""St""
+   PostDir: """" (because there's no post-directional, like ""N"", ""E"", etc.)
+   Unit: """" (no unit)
+   City: ""La Habra""
+   State: ""CA"" (as specified)
+   Zip: ""90631""
+
+ However, note that the address string does not have a unit, so Unit is """".
+
+ But wait: the address says ""S Monte Vista St"", which is the street. The ""S"" is the pre-directional.
+
+ Let's check the keys:
+   Number: we don't have a number, so empty string.
+   PreDir: ""S""
+   StreetName: ""Monte Vista""
+   StreetType: ""St""
+   PostDir: """" (because there's no post-directional, like ""N"" after the street name)
+   Unit: """"
+   City: ""La Habra""
+   State: ""CA""
+   Zip: ""90631""
+
+ However, note that the address string does not have a house number. So we leave Number as """".
+
+ But wait: sometimes the house number might be missing? The problem says ""if unknown, use """""", so we do that.
+
+ Now, let's write the JSON.
+
+ Important: We must return only JSON, no extra text.
+
+ So the JSON should be:
+ {
+   ""Number"": """",
+   ""PreDir"": ""S"",
+   ""StreetName"": ""Monte Vista"",
+   ""StreetType"": ""St"",
+   ""PostDir"": """",
+   ""Unit"": """",
+   ""City"": ""La Habra"",
+   ""State"": ""CA"",
+   ""Zip"": ""90631""
+ }
+
+ However, note: the address string has ""St"" for StreetType. We are to use the abbreviation as given? 
+ The problem doesn't say to expand, so we use ""St"".
+
+ But note: the problem says ""Parse"", so we take the string as given.
+
+ Let's double-check the address: ""S Monte Vista St La Habra 90631""
+ - The ""St"" is the street type, so we put ""St"" in StreetType.
+
+ Also, note that the city is ""La Habra"", which is two words. We don't break it.
+
+ Now, write the JSON.
+
+ Important: The problem says ""Return JSON only, no explanation.""
+
+ So we output:
+{""Number"":"""",""PreDir"":""S"",""StreetName"":""Monte Vista"",""StreetType"":""St"",""PostDir"":"""",""Unit"":"""",""City"":""La Habra"",""State"":""CA"",""Zip"":""90631""}
+
+ But note: the problem says ""exactly these keys"", so we must use the exact key names.
+
+ Let's write it as a JSON string.
+
+ However, note: the problem says ""Return JSON only"", meaning we output the JSON without any extra text.
+
+ We'll output the JSON string.
+
+ But note: the problem says ""Use exactly these keys"", so we have to use the exact spelling.
+
+ Let's write the JSON.
+</think>
+
+{""Number"":"""",""PreDir"":""S"",""StreetName"":""Monte Vista"",""StreetType"":""St"",""PostDir"":"""",""Unit"":"""",""City"":""La Habra"",""State"":""CA"",""Zip"":""90631""}"
+S Idaho St La Habra 90631,,S,Idaho,St,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing problem. The user wants me to parse ""S Idaho St La Habra 90631"" into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, the address is ""S Idaho St La Habra 90631"". I need to split this into the required fields: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as per the instructions, so I don't have to worry about that part.
+
+Starting with the number. The address starts with ""S Idaho St"", so ""S"" is probably the direction, not the number. Wait, sometimes addresses have numbers before the street name. But here, it's ""S Idaho St"", so maybe ""S"" is the pre-direction. Let me check typical address structures. Usually, it's something like [Number] [PreDir] [StreetName] [StreetType] [PostDir]. So the number would be a numeric part. But in this case, there's no number mentioned. The address starts with ""S"", which is a direction. So maybe the number is missing, so I should leave it as empty string.
+
+Next, PreDir. ""S"" stands for South, so that's the pre-direction. So PreDir would be ""S"".
+
+StreetName is ""Idaho"". So StreetName: ""Idaho"".
+
+StreetType is ""St"", which is short for Street. So StreetType: ""St"".
+
+PostDir: There's no post-direction here, like ""N"" or ""E"", so it should be empty.
+
+Unit: The address doesn't mention any unit number, like apartment or suite, so Unit is empty.
+
+City: ""La Habra"" is the city name. So City: ""La Habra"".
+
+State: The user specified to use ""CA"", so State: ""CA"".
+
+Zip: The last part is ""90631"", which is the zip code. So Zip: ""90631"".
+
+Wait, let me double-check. The address is ""S Idaho St La Habra 90631"". So breaking it down:
+
+- S: PreDir
+- Idaho: StreetName
+- St: StreetType
+- La Habra: City
+- 90631: Zip
+
+No number, unit, or post direction. So all the fields that are missing should be empty strings.
+
+Let me confirm if ""St"" is correctly the StreetType. Yes, ""St"" is commonly used for Street. So StreetType is ""St"".
+
+State is given as ""CA"", so that's set.
+
+Putting it all together:
+
+Number: """" (since there's no number)
+PreDir: ""S""
+StreetName: ""Idaho""
+StreetType: ""St""
+PostDir: """"
+Unit: """"
+City: ""La Habra""
+State: ""CA""
+Zip: ""90631""
+
+I think that's all. Let me check if ""La Habra"" is the city. Yes, La Habra is a city in California, so that's correct. The zip code 90631 is for La Habra, so that matches.
+
+No other parts to the address. So the JSON should have all these values.
+</think>
+
+{""Number"": """", ""PreDir"": ""S"", ""StreetName"": ""Idaho"", ""StreetType"": ""St"", ""PostDir"": """", ""Unit"": """", ""City"": ""La Habra"", ""State"": ""CA"", ""Zip"": ""90631""}",
+S Beach Blvd La Habra 90631,,S,Beach,Blvd,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""S Beach Blvd La Habra 90631"" and wants it converted into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, I need to identify each part of the address according to the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as specified, so I don't have to worry about that part.
+
+Looking at the address: ""S Beach Blvd La Habra 90631"". Let's split it into components. The first part is ""S"", which is likely a directional prefix (PreDir). Then ""Beach"" would be the StreetName, followed by ""Blvd"" as the StreetType. ""La Habra"" is the city, and ""90631"" is the zip code.
+
+Wait, but the address is written as ""S Beach Blvd La Habra 90631"". So ""S"" is the pre-directional (like South), ""Beach"" is the street name, ""Blvd"" is the type (Boulevard), then ""La Habra"" is the city, and ""90631"" is the zip. There's no unit mentioned, so Unit should be empty. The State is given as CA, so that's straightforward.
+
+Let me check each key:
+
+- Number: The address doesn't have a specific number, like 123, so it should be empty.
+- PreDir: ""S"" (South)
+- StreetName: ""Beach""
+- StreetType: ""Blvd""
+- PostDir: There's no post-directional (like East), so empty.
+- Unit: Not present, so empty.
+- City: ""La Habra""
+- State: ""CA"" (as specified)
+- Zip: ""90631""
+
+Wait, the user said ""State should be 'CA'"", so even if the address didn't mention it, we have to set it to CA. But in the given address, there's no state, so we just use CA.
+
+Let me confirm if ""S Beach Blvd"" is the street part. ""S"" is the pre-direction, ""Beach"" is the name, ""Blvd"" is the type. So PreDir: S, StreetName: Beach, StreetType: Blvd. Then the city is La Habra, zip 90631.
+
+No unit mentioned, so Unit is empty. All other fields as per the breakdown.
+
+Double-checking: The address is ""S Beach Blvd La Habra 90631"". So after the street, it's the city and zip. So yes, City is La Habra, Zip is 90631.
+
+So the JSON should have:
+
+Number: """"
+PreDir: ""S""
+StreetName: ""Beach""
+StreetType: ""Blvd""
+PostDir: """"
+Unit: """"
+City: ""La Habra""
+State: ""CA""
+Zip: ""90631""
+
+Wait, the user said ""Use exactly these keys"", so I need to make sure the keys are spelled correctly. Let me check the keys again: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. All correct.
+
+No numbers in the address, so Number is empty. PreDir is S. StreetName Beach, StreetType Blvd. PostDir empty. Unit empty. City La Habra. State CA. Zip 90631.
+
+Looks good. I think that's all. Let me make sure there's no other parts. The address is written as ""S Beach Blvd La Habra 90631"" – no commas or other separators, so splitting as above is correct.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Beach"",
+  ""StreetType"": ""Blvd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+E Imperial Hwy La Habra 90631,,E,Imperial,Hwy,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"We are given the address: ""E Imperial Hwy La Habra 90631""
+ We need to break it down into the specified keys.
+
+ Steps:
+ 1. The address has:
+    - ""E"" which is likely a pre-directional (like East)
+    - ""Imperial Hwy"" -> ""Imperial"" is the street name, ""Hwy"" is the street type (Highway)
+    - ""La Habra"" is the city
+    - ""90631"" is the zip code
+
+ 2. We note that the state is to be set to ""CA"" (as per instruction, even if not in the address).
+
+ 3. The address does not have a unit (like apartment number), so Unit will be """".
+
+ 4. Let's break down:
+    - Number: There is no house number in the given string. The string starts with ""E"", so we assume the number is missing -> use """"
+    - PreDir: ""E"" (for East)
+    - StreetName: ""Imperial""
+    - StreetType: ""Hwy"" (which we'll keep as is, but note: sometimes it's written as ""Highway"", but the address uses ""Hwy"")
+    - PostDir: There is no post-directional (like West) -> """"
+    - Unit: """" (no unit)
+    - City: ""La Habra""
+    - State: ""CA"" (as instructed)
+    - Zip: ""90631""
+
+ 5. However, note that the address string does not have a house number. The typical format would have a number at the beginning, but here it starts with ""E"". 
+    So we assume the house number is missing.
+
+ 6. Let's check the keys:
+    Number: """" (because there's no number provided)
+    PreDir: ""E""
+    StreetName: ""Imperial""
+    StreetType: ""Hwy""
+    PostDir: """"
+    Unit: """"
+    City: ""La Habra""
+    State: ""CA""
+    Zip: ""90631""
+
+ 7. We must return only JSON.
+
+ Important: The instruction says ""If unknown, use """"."" and ""State should be 'CA'"".
+
+ Let's write the JSON accordingly.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""E"",
+  ""StreetName"": ""Imperial"",
+  ""StreetType"": ""Hwy"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+S Palm St Fullerton 92835,,S,Palm,St,,,Fullerton,CA,92835,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""S Palm St Fullerton 92835"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the address: ""S Palm St Fullerton 92835"". Let's split it into parts. The standard address format usually goes like Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+Looking at ""S Palm St Fullerton 92835"", I see ""S"" which is likely the PreDir (like South). Then ""Palm"" is the StreetName, ""St"" is the StreetType (Street). ""Fullerton"" is the City. The zip code is ""92835"". The State should be ""CA"" as per the instructions.
+
+Wait, the user said to use ""CA"" for State, so I don't need to check that. Now, checking for other fields. The address doesn't have a Unit, so Unit should be empty. PreDir is ""S"", StreetName ""Palm"", StreetType ""St"", PostDir is missing, so empty. City is Fullerton, State CA, Zip 92835.
+
+Wait, ""S Palm St"" – ""S"" is the pre-directional, ""Palm"" is the name, ""St"" is the type. So PreDir: S, StreetName: Palm, StreetType: St. PostDir would be if there's something like ""N"" or ""E"", but here it's just ""S Palm St"", so PostDir is empty.
+
+City is Fullerton, Zip 92835. State is CA. Unit is not present, so empty.
+
+Let me confirm each part:
+
+- Number: The address starts with ""S Palm St"", but there's no number. Wait, the address given is ""S Palm St Fullerton 92835"". Wait, maybe the number is missing? The user's example might have a typo, but according to the input, there's no number. So Number should be empty.
+
+Wait, the address is written as ""S Palm St Fullerton 92835"". Typically, the number would come before the street direction. But here, it's ""S Palm St"", so maybe the number is missing. The user says if unknown, use """". So Number would be empty.
+
+So:
+
+Number: """"
+
+PreDir: ""S""
+
+StreetName: ""Palm""
+
+StreetType: ""St""
+
+PostDir: """"
+
+Unit: """"
+
+City: ""Fullerton""
+
+State: ""CA""
+
+Zip: ""92835""
+
+Let me check again. The address is ""S Palm St Fullerton 92835"". So ""S"" is the pre-direction, ""Palm"" is the street name, ""St"" is the type. Then ""Fullerton"" is the city, ""92835"" is the zip. No unit, no post-direction. So all the fields fit.
+
+State is specified to be ""CA"", so that's set. All other fields that aren't present are empty strings.
+
+So the JSON should have all those keys with the corresponding values. Let me make sure I didn't miss anything. The user said to use exactly those keys, so no other fields. And return JSON only, no explanations.
+
+Double-checking each key:
+
+Number: missing, so """"
+
+PreDir: ""S""
+
+StreetName: ""Palm""
+
+StreetType: ""St""
+
+PostDir: """"
+
+Unit: """"
+
+City: ""Fullerton""
+
+State: ""CA""
+
+Zip: ""92835""
+
+Yes, that seems right. I think that's correct.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""S"",
+  ""StreetName"": ""Palm"",
+  ""StreetType"": ""St"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Fullerton"",
+  ""State"": ""CA"",
+  ""Zip"": ""92835""
+}",
+W Imperial Hwy La Habra 90631,,W,Imperial,Hwy,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""W Imperial Hwy La Habra 90631"" and wants it converted into a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the address: ""W Imperial Hwy La Habra 90631"". Let's split it into parts. The ""W"" is likely a direction, so PreDir would be ""W"". Then ""Imperial Hwy"" – ""Hwy"" is short for Highway, so StreetName is ""Imperial"" and StreetType is ""Hwy"". Next, ""La Habra"" is the city, so City is ""La Habra"". The zip code is ""90631"", so Zip is ""90631"". The State should be ""CA"" as per the instructions.
+
+Wait, checking if there's a Unit. The address doesn't mention any unit number like ""Apt 123"" or ""Unit 5"", so Unit should be empty. PostDir is the direction after the street, but here it's ""Hwy"" followed by the city, so no PostDir. Let me confirm: ""W Imperial Hwy"" – the ""W"" is PreDir, ""Imperial"" is StreetName, ""Hwy"" is StreetType. Then ""La Habra"" is the city, so no PostDir. The zip is 90631. State is CA.
+
+Double-checking each part. Number: The address doesn't have a street number, like ""1234"", so Number should be empty. Wait, the user's example might have a number, but in this case, the address starts with ""W Imperial Hwy"", so maybe there's no number. So Number is """".
+
+Wait, the address is ""W Imperial Hwy La Habra 90631"". Sometimes addresses have numbers before the street name, but here it's ""W"" (direction) followed by the street name. So no house number. So Number is empty.
+
+PreDir: ""W"" (West)
+
+StreetName: ""Imperial""
+
+StreetType: ""Hwy""
+
+PostDir: None, so empty
+
+Unit: None, empty
+
+City: ""La Habra""
+
+State: ""CA"" (as instructed)
+
+Zip: ""90631""
+
+Let me make sure. For example, ""123 Main St"" would have Number=123, StreetName=Main, StreetType=St. Here, no number, so Number is empty. The ""W"" is a pre-direction, so PreDir=W. StreetName is Imperial, StreetType Hwy. City is La Habra, Zip 90631. State CA. All other fields empty.
+
+Yes, that seems right. So the JSON should have those values. Let me check if ""Hwy"" is correctly placed as StreetType. Yes, Highway is often abbreviated as Hwy. So StreetType is ""Hwy"".
+
+No Unit, so Unit is empty. PostDir is empty because there's no direction after the street. So all the fields are filled as per the instructions.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""W"",
+  ""StreetName"": ""Imperial"",
+  ""StreetType"": ""Hwy"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+E LAMBERT RD La Habra 90631,,E,LAMBERT,RD,,,La Habra,CA,90631,[],0,False,"['Number', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address ""E LAMBERT RD La Habra 90631"" and wants it converted into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, I need to identify each part of the address according to the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"", so I don't have to worry about that part.
+
+Looking at the address: ""E LAMBERT RD La Habra 90631"". Let's split it. The ""E"" is probably the pre-directional (like East), so PreDir would be ""E"". Then ""LAMBERT"" is the street name, so StreetName is ""LAMBERT"". ""RD"" stands for Road, so StreetType is ""RD"". There's no post-directional (like West), so PostDir would be empty. 
+
+Next, ""La Habra"" is the city, so City is ""La Habra"". The zip code is ""90631"", so Zip is ""90631"". The State is given as ""CA"", so that's straightforward. 
+
+Wait, the address doesn't have a unit number, so Unit should be empty. Let me check again. The address is ""E LAMBERT RD La Habra 90631"". No mention of an apartment number or unit, so Unit is """".
+
+Number: Wait, the address starts with ""E LAMBERT RD"", but there's no house number. The user's example might have a number, but here it's missing. The instruction says if unknown, use """". So Number should be empty. Wait, but sometimes the number is part of the street address. Wait, ""E LAMBERT RD"" – maybe ""E"" is the direction, and ""LAMBERT"" is the street name, so the number might be missing. So Number would be """".
+
+Let me confirm. In standard address parsing, the number is the house number. Since there's no number here (like 123 E Lambert Rd), the Number field should be empty. So Number is """".
+
+PreDir: ""E"" (East), so PreDir is ""E"".
+
+StreetName: ""LAMBERT"".
+
+StreetType: ""RD"" (Road).
+
+PostDir: None, so """".
+
+Unit: None, so """".
+
+City: ""La Habra"".
+
+State: ""CA"" (as specified).
+
+Zip: ""90631"".
+
+Double-checking each part. The address is ""E LAMBERT RD La Habra 90631"". So yes, the components fit. No unit, no number. So the JSON should have all the keys filled as per the analysis.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": ""E"",
+  ""StreetName"": ""LAMBERT"",
+  ""StreetType"": ""RD"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""La Habra"",
+  ""State"": ""CA"",
+  ""Zip"": ""90631""
+}",
+8516 Canoga Park 91304,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+2363 Agoura Hills 91301,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+14842 Main Co 1545 Sawtelle Blvd Van Nuys 91411,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+5533 N Edward Everett Horton Ln Encino 91316,5533,N,Edward Everett Horton,Ln,,,Encino,CA,91316,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address: ""5533 N Edward Everett Horton Ln Encino 91316"". I need to break it down into the specified JSON keys.
+
+First, the Number. The first part is ""5533"", so that's the street number. Check.
+
+Next, PreDir. That's the prefix direction like North, South. The address has ""N"" after the number, so PreDir should be ""N"".
+
+StreetName: After the number and direction, it's ""Edward Everett Horton"". Wait, but sometimes street names can have multiple parts. Let me see. The address says ""Edward Everett Horton Ln"". So ""Edward Everett Horton"" is the street name. But sometimes ""Horton"" might be part of the name. Wait, ""Edward Everett Horton"" is the full street name. So StreetName would be ""Edward Everett Horton"".
+
+StreetType: The next part is ""Ln"", which stands for Lane. So StreetType is ""Ln"".
+
+PostDir: There's no direction after the street type, so that's empty.
+
+Unit: The address doesn't mention any unit number like apartment or suite, so Unit is empty.
+
+City: After the street, it's ""Encino"", which is the city. So City is ""Encino"".
+
+State: The user specified State should be ""CA"", so I'll put ""CA"" regardless.
+
+Zip: The last part is ""91316"", which is the zip code. So Zip is ""91316"".
+
+Wait, let me double-check. The address is ""5533 N Edward Everett Horton Ln Encino 91316"". So breaking it down:
+
+- 5533: Number
+- N: PreDir
+- Edward Everett Horton: StreetName
+- Ln: StreetType
+- Encino: City
+- 91316: Zip
+
+State is given as CA. No Unit mentioned. PostDir is empty. So all the keys should be filled accordingly.
+
+Wait, sometimes ""Edward Everett Horton"" might be split, but I think it's the full name. Let me confirm. For example, if it's ""Horton Ln"", then ""Horton"" would be the street name, but here it's ""Edward Everett Horton Ln"", so the full name is ""Edward Everett Horton"". So StreetName is ""Edward Everett Horton"".
+
+Yes, that makes sense. So the JSON should have those values. Let me make sure all keys are covered. The keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+So:
+
+Number: ""5533""
+
+PreDir: ""N""
+
+StreetName: ""Edward Everett Horton""
+
+StreetType: ""Ln""
+
+PostDir: """"
+
+Unit: """"
+
+City: ""Encino""
+
+State: ""CA""
+
+Zip: ""91316""
+
+That seems right. Let me check if ""Ln"" is the correct abbreviation for Lane. Yes, Ln is commonly used for Lane. So StreetType is ""Ln"".
+
+No other parts. The address doesn't have a unit, so Unit is empty. PostDir is empty. All set.
+</think>
+
+{
+  ""Number"": ""5533"",
+  ""PreDir"": ""N"",
+  ""StreetName"": ""Edward Everett Horton"",
+  ""StreetType"": ""Ln"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Encino"",
+  ""State"": ""CA"",
+  ""Zip"": ""91316""
+}",
+14003 Holly Dr Beverly Hills 90210,14003,,Holly,Dr,,,Beverly Hills,CA,90210,[],0,False,"['PreDir', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing request. The user wants me to parse ""14003 Holly Dr Beverly Hills 90210"" into a specific JSON format with certain keys. Let me break it down step by step.
+
+First, I need to identify each component of the address. The keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. The State should be ""CA"" as specified, so I don't have to worry about that part.
+
+Looking at the address: ""14003 Holly Dr Beverly Hills 90210"". Let's split it. The first part is usually the street number. So ""14003"" should be the Number. Then ""Holly"" is likely the StreetName. ""Dr"" is the StreetType, which stands for Drive. 
+
+Next, ""Beverly Hills"" is the city. Wait, but sometimes ""Beverly Hills"" is the city name, so City would be ""Beverly Hills"". Then the zip code is ""90210"". 
+
+Wait, the user mentioned ""PostDir"" which is the post-directional, like ""N"", ""S"", ""E"", ""W"". In this address, there's no such thing. So PostDir should be empty. Similarly, PreDir is the pre-directional, like ""N"", ""S"", etc., which also isn't present here. So both PreDir and PostDir would be empty strings.
+
+Unit is for apartment numbers or suite numbers. The address doesn't mention anything like that, so Unit should be empty.
+
+State is specified to be ""CA"", so that's straightforward.
+
+Let me double-check each part. Number: 14003. StreetName: Holly. StreetType: Dr. City: Beverly Hills. Zip: 90210. All other fields are empty.
+
+Wait, ""Beverly Hills"" is the city, right? Yes, Beverly Hills is a city in California. So City is ""Beverly Hills"". The zip code 90210 is correct for Beverly Hills.
+
+So putting it all together:
+
+Number: ""14003""
+
+PreDir: """"
+
+StreetName: ""Holly""
+
+StreetType: ""Dr""
+
+PostDir: """"
+
+Unit: """"
+
+City: ""Beverly Hills""
+
+State: ""CA""
+
+Zip: ""90210""
+
+I need to make sure there are no typos. ""Dr"" is the standard abbreviation for Drive, so that's correct. The zip code is 90210, which matches Beverly Hills. All other fields are empty as they aren't present in the address.
+
+Double-checking the keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. All covered. State is set to ""CA"" as instructed. No extra fields, just the ones specified.
+
+Okay, looks like that's all. Time to format it into JSON as required.
+</think>
+
+{
+  ""Number"": ""14003"",
+  ""PreDir"": """",
+  ""StreetName"": ""Holly"",
+  ""StreetType"": ""Dr"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Beverly Hills"",
+  ""State"": ""CA"",
+  ""Zip"": ""90210""
+}",
+4635 Park Western Pl North Hollywood 91602,4635,,Park Western,Pl,,,North Hollywood,CA,91602,[],0,False,"['PreDir', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user provided the address: ""4635 Park Western Pl North Hollywood 91602"". I need to break it down into the specified JSON keys.
+
+First, the Number should be the street number. Here, ""4635"" is the number. So Number: ""4635"".
+
+Next, PreDir. That's the prefix direction like North, South. Looking at the address, after the number, it's ""Park Western Pl"". Wait, ""Park Western"" might be the street name. Wait, ""Pl"" is probably ""Place"", so StreetType is ""Pl"" for Place. But let's check.
+
+Wait, the address is ""4635 Park Western Pl North Hollywood 91602"". So ""Pl"" is the street type abbreviation. So StreetType should be ""Pl"" (Place). But the user says to use the abbreviation as given, so ""Pl"".
+
+Now, StreetName. The part before the street type. So ""Park Western"" would be the street name. Wait, but sometimes ""Park"" could be part of the name. Let's see. ""Park Western Pl"" – so ""Park Western"" is the street name, and ""Pl"" is the type. So StreetName: ""Park Western"".
+
+PostDir is the suffix direction, like East, West. In the address, after ""Pl"" it's ""North Hollywood"". Wait, ""North Hollywood"" is the city? Wait, the city is usually after the street. Wait, the address is written as ""4635 Park Western Pl North Hollywood 91602"". So ""North Hollywood"" is likely the city. But let's check.
+
+Wait, the standard format is Number StreetName StreetType City State Zip. So here, ""4635 Park Western Pl"" would be the street address, then ""North Hollywood"" is the city, and ""91602"" is the zip. But the user says State should be ""CA"", so that's fixed.
+
+Wait, but ""North Hollywood"" is a neighborhood in Los Angeles, but the city might be Los Angeles. However, the address says ""North Hollywood"", so maybe the city is North Hollywood. But sometimes addresses list the neighborhood as part of the city. However, the user's instruction says to use the given address parts. So ""North Hollywood"" is the city here.
+
+Wait, but the address is ""4635 Park Western Pl North Hollywood 91602"". So after the street type ""Pl"", it's ""North Hollywood"", which is likely the city. So City: ""North Hollywood"".
+
+Zip is ""91602"".
+
+Now, checking for other fields. PreDir: directions before the street name. In this case, ""Park Western"" – is there a direction before ""Park""? Like ""North Park Western""? But the address is ""Park Western Pl"", so ""Park"" is part of the street name. So PreDir would be empty. Similarly, PostDir would be after the street name. Since ""Pl"" is the street type, and there's no direction after, PostDir is empty.
+
+Unit: The address doesn't mention a unit number like APT, SUITE, etc., so Unit should be empty.
+
+State is given as ""CA"", so State: ""CA"".
+
+Let me verify each part again.
+
+Number: 4635 – correct.
+
+PreDir: None, so """".
+
+StreetName: Park Western – yes, since ""Pl"" is the type.
+
+StreetType: Pl.
+
+PostDir: None, so """".
+
+Unit: None, so """".
+
+City: North Hollywood.
+
+State: CA.
+
+Zip: 91602.
+
+Wait, but ""North Hollywood"" is a city? Wait, North Hollywood is a neighborhood in Los Angeles, CA. But the address might list it as the city. However, the user's instruction says to use the address as given. So if the address says ""North Hollywood"", then City is ""North Hollywood"".
+
+But sometimes, addresses might have ""North Hollywood"" as part of the street, but here it's after the street type. So ""Park Western Pl"" is the street, then ""North Hollywood"" is the city. So City: ""North Hollywood"".
+
+Zip is 91602, which is a valid zip code for North Hollywood.
+
+So putting it all together:
+
+Number: ""4635""
+
+PreDir: """"
+
+StreetName: ""Park Western""
+
+StreetType: ""Pl""
+
+PostDir: """"
+
+Unit: """"
+
+City: ""North Hollywood""
+
+State: ""CA""
+
+Zip: ""91602""
+
+Check if all keys are present. Yes, the required keys are all there. No unknown fields. So the JSON should be as above.
+</think>
+
+{""Number"": ""4635"", ""PreDir"": """", ""StreetName"": ""Park Western"", ""StreetType"": ""Pl"", ""PostDir"": """", ""Unit"": """", ""City"": ""North Hollywood"", ""State"": ""CA"", ""Zip"": ""91602""}",
+3900 Unit 120 Universal City 91608,3900,,,,,120,Universal City,CA,91608,['StreetName'],1,True,"['PreDir', 'StreetType', 'PostDir']",3,"Okay, let's tackle this address parsing. The user provided the address ""3900 Unit 120 Universal City 91608"" and wants it broken down into specific JSON keys. First, I need to recall the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State must be ""CA"", so I'll set that regardless.
+
+Looking at the address: ""3900 Unit 120 Universal City 91608"". Let's break it down. The number part is usually the street number. Here, ""3900"" is likely the street number. Then ""Unit 120"" – so Unit should be ""120"". Next, ""Universal City"" – that's probably the city name. Wait, but ""Universal City"" is a city in California, so City would be ""Universal City"". Then the zip code is ""91608"".
+
+Wait, but sometimes ""Universal City"" might be part of the street name. Wait, no, Universal City is a city name. Let me confirm. Universal City is a city in Los Angeles County, CA, so the city is Universal City. The zip code 91608 is for Universal City, so that checks out.
+
+Now, checking the other fields. PreDir (pre-directional like North, South) – the address doesn't have any, so it's empty. StreetName would be the main part of the street. Wait, but the address is ""3900 Unit 120 Universal City 91608"". Wait, maybe ""Universal City"" is the street name? Wait, no. Wait, the standard format is Number StreetName StreetType, but here it's ""3900"" followed by ""Unit 120"", then ""Universal City"". Hmm. Wait, maybe ""Universal City"" is the city, so the street name might be missing. Wait, but the address as given might be missing some parts. Let's see.
+
+Wait, the address is ""3900 Unit 120 Universal City 91608"". So ""3900"" is the number, ""Unit 120"" is the unit, ""Universal City"" is the city, and ""91608"" is the zip. So StreetName and StreetType might be empty. Wait, but the user expects StreetName and StreetType. Wait, maybe ""Universal City"" is the street name? But ""Universal City"" is a city, not a street. Wait, maybe the address is written as ""3900 [Street Name] Universal City"", but here it's written as ""3900 Unit 120 Universal City 91608"". So perhaps ""Universal City"" is the city, and the street name is missing. But the user's example might have a typo. Wait, maybe ""Universal City"" is part of the street name. Wait, but in reality, Universal City is a city, so the city field should be ""Universal City"", and the street name would be something else. But the address provided doesn't have a street name. Wait, maybe the address is missing the street name, so StreetName would be empty.
+
+Wait, let's think again. The standard address format is:
+
+Number StreetName StreetType, City, State Zip
+
+But here, the address is ""3900 Unit 120 Universal City 91608"". So ""3900"" is the number, ""Unit 120"" is the unit, ""Universal City"" is the city, and ""91608"" is the zip. So StreetName and StreetType would be empty. PreDir and PostDir are also empty.
+
+Wait, but maybe ""Universal City"" is the street name. Wait, but ""Universal City"" is a city, not a street. For example, there's a Universal Studios in Universal City, CA. So the city is Universal City. So the address is 3900 (number), Unit 120 (unit), in the city of Universal City, zip 91608.
+
+So StreetName would be empty, StreetType empty. PreDir and PostDir empty.
+
+So filling in the JSON:
+
+Number: ""3900""
+
+PreDir: """"
+
+StreetName: """"
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: ""120""
+
+City: ""Universal City""
+
+State: ""CA"" (as specified)
+
+Zip: ""91608""
+
+Wait, but the user said ""State should be 'CA'"", so even if the address doesn't specify, we set it to CA. So that's covered.
+
+Check if all keys are present. Yes, all required keys are there.
+
+Double-checking: The address is ""3900 Unit 120 Universal City 91608"". So ""3900"" is the number, ""Unit 120"" is the unit, ""Universal City"" is the city, ""91608"" is the zip. So yes, that's how it breaks down.
+
+I think that's correct. Let me make sure there's no street name. If the address was, say, ""3900 Universal City Blvd"", then StreetName would be ""Universal City"", StreetType ""Blvd"", but here it's ""Universal City"" as the city, so StreetName and StreetType are empty.
+
+Yes, so the JSON should have those fields as empty strings except for the ones filled.
+</think>
+
+{
+  ""Number"": ""3900"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": ""120"",
+  ""City"": ""Universal City"",
+  ""State"": ""CA"",
+  ""Zip"": ""91608""
+}",
+12610 N Glenoaks Blvd San Fernando 91340,12610,N,Glenoaks,Blvd,,,San Fernando,CA,91340,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user wants it in a specific JSON format with certain keys. Let me break down the address they provided: ""12610 N Glenoaks Blvd San Fernando 91340"".
+
+First, I need to split this into the required components. The keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State should be ""CA"" as per the instructions.
+
+Starting with the Number. The first part is ""12610"", so that's the street number. Then PreDir: ""N"" stands for North, so that's the prefix direction. StreetName should be ""Glenoaks"", and StreetType is ""Blvd"" for Boulevard. PostDir isn't present here, so it's empty. Unit isn't mentioned, so that's empty. City is ""San Fernando"", State is ""CA"", and Zip is ""91340"".
+
+Wait, let me double-check. The address is ""12610 N Glenoaks Blvd San Fernando 91340"". So after the street type ""Blvd"", it's ""San Fernando"" which is the city. The zip code is 91340. So all the parts seem to fit. No unit mentioned, so Unit is empty. PreDir is ""N"", PostDir is empty. StreetName is ""Glenoaks"", StreetType ""Blvd"". City is ""San Fernando"", State ""CA"", Zip ""91340"". That looks right. Let me make sure there's no other parts. The user said to use exactly those keys, so I need to ensure all are present. No ""Unit"" here, so it's an empty string. Alright, that should be it.
+</think>
+
+{
+  ""Number"": ""12610"",
+  ""PreDir"": ""N"",
+  ""StreetName"": ""Glenoaks"",
+  ""StreetType"": ""Blvd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""San Fernando"",
+  ""State"": ""CA"",
+  ""Zip"": ""91340""
+}",
+13562 Arbolada Sylmar 91342,13562,,Arbolada,,,,Sylmar,CA,91342,[],0,False,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided the address ""13562 Arbolada Sylmar 91342"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the Number. The first part of the address is usually the street number. Here, ""13562"" looks like the number. So Number should be ""13562"".
+
+Next, PreDir. That's the prefix direction like North, South, etc. The address doesn't have any of those, so PreDir should be empty.
+
+StreetName is the name of the street. The next part after the number is ""Arbolada"". So StreetName is ""Arbolada"".
+
+StreetType would be things like St, Ave, Blvd. But here, ""Arbolada"" is the street name, and there's no type mentioned. So StreetType should be empty.
+
+PostDir is the suffix direction, like East or West. Again, no directions here, so PostDir is empty.
+
+Unit is for apartment numbers or suite info. The address doesn't mention any unit, so Unit is empty.
+
+City is ""Sylmar"". The address has ""Sylmar"" after the street name, which is likely the city. So City is ""Sylmar"".
+
+State should be ""CA"" as per the user's instruction, even if it's not in the address. So State is ""CA"".
+
+Zip is the postal code. The last part is ""91342"", which is a valid zip code. So Zip is ""91342"".
+
+Wait, let me double-check. The address is ""13562 Arbolada Sylmar 91342"". Sometimes cities can be part of the street, but Sylmar is a city in California. So Sylmar is the city, and 91342 is the zip. The street name is Arbolada, which is a common street name in Sylmar. So the breakdown seems right.
+
+Check if any parts are missing. PreDir, StreetType, PostDir, Unit are all empty. State is fixed to CA. All keys are covered. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""13562"",
+  ""PreDir"": """",
+  ""StreetName"": ""Arbolada"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Sylmar"",
+  ""State"": ""CA"",
+  ""Zip"": ""91342""
+}",
+11656 Porter Ranch 91326,11656,,Porter Ranch,,,,,CA,91326,['City'],1,True,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided the address ""11656 Porter Ranch 91326"" and wants it parsed into specific JSON keys. First, I need to break down the address components.
+
+Starting with the number: ""11656"" looks like the street number. So Number should be ""11656"".
+
+Next, PreDir and PostDir. These are directional prefixes or suffixes like North, South, East, West. The address has ""Porter Ranch"" which is a neighborhood or a street name. Wait, ""Porter Ranch"" is likely the street name. But sometimes ""Porter Ranch"" could be a place name, but in this context, it's probably the street. So StreetName would be ""Porter Ranch"", but wait, ""Porter Ranch"" might be the street name. Wait, ""Porter Ranch"" is a common street name in Los Angeles, so maybe it's ""Porter Ranch"" as the street name. But the address is written as ""11656 Porter Ranch 91326"". So the number is 11656, then the street name is Porter Ranch, and then the zip code 91326.
+
+Wait, but the zip code is 91326. So the address is 11656 Porter Ranch, and the zip is 91326. But the user's address is written as ""11656 Porter Ranch 91326"", so the zip is at the end. So the components would be:
+
+Number: 11656
+
+StreetName: Porter Ranch
+
+Zip: 91326
+
+But the keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+Wait, StreetType is like ""St"", ""Ave"", etc. But here, ""Porter Ranch"" is the street name, and there's no StreetType mentioned. So StreetType would be empty.
+
+PreDir and PostDir: Since there's no North, South, etc., those should be empty.
+
+Unit: The address doesn't mention an apartment or unit number, so Unit is empty.
+
+City: The address doesn't have a city name. But the zip code 91326 is for Porter Ranch, which is a neighborhood in Los Angeles, CA. But the user says State should be ""CA"", so City might be ""Los Angeles"" but the address doesn't specify. Wait, the problem says if unknown, use """". So since the address doesn't have a city name, City should be empty. Wait, but Porter Ranch is a neighborhood in Los Angeles, so maybe the city is Los Angeles. But the address provided doesn't include ""Los Angeles"", so according to the instructions, if unknown, use """". So City would be """".
+
+State is specified to be ""CA"", so State: ""CA"".
+
+Zip is 91326.
+
+Wait, the address is ""11656 Porter Ranch 91326"". So the zip is 91326. So Zip: ""91326"".
+
+Let me check again. The address is written as ""11656 Porter Ranch 91326"". So the zip code is at the end. So the components:
+
+Number: 11656
+
+StreetName: Porter Ranch
+
+Zip: 91326
+
+But StreetType is missing. So StreetType is """".
+
+PreDir and PostDir: none, so empty.
+
+Unit: none, so empty.
+
+City: not provided, so empty.
+
+State: CA as per instruction.
+
+So putting it all together:
+
+Number: ""11656""
+
+PreDir: """"
+
+StreetName: ""Porter Ranch""
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: """"
+
+State: ""CA""
+
+Zip: ""91326""
+
+Wait, but ""Porter Ranch"" is the street name. Wait, sometimes ""Porter Ranch"" is the name of the street, but sometimes it's a neighborhood. However, in the context of an address, ""Porter Ranch"" would be the street name. For example, there's a Porter Ranch Road or something. But the address is written as ""11656 Porter Ranch"", so ""Porter Ranch"" is the street name. So StreetName is ""Porter Ranch"", and StreetType would be empty because there's no ""St"", ""Ave"", etc.
+
+Yes, that makes sense. So StreetType is empty.
+
+So the JSON should have all the keys with the values as above.
+</think>
+
+{
+  ""Number"": ""11656"",
+  ""PreDir"": """",
+  ""StreetName"": ""Porter Ranch"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""91326""
+}",
+23630 B Valencia Blvd Valencia 91355,23630,B,Valencia,Blvd,,,Valencia,CA,91355,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address ""23630 B Valencia Blvd Valencia 91355"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the number: ""23630"" seems like the street number. Then there's ""B"" which might be a pre-directional, like North or South. Wait, ""B"" isn't a standard pre-directional. Usually, they're abbreviations like N, S, E, W. But maybe ""B"" here is part of the street name? Wait, the street name is ""Valencia Blvd"". So ""B"" might be a pre-directional. But ""B"" isn't standard. Hmm. Maybe it's a typo or a specific local abbreviation. The user says to use exactly the keys, so if it's there, I should include it. So PreDir would be ""B"".
+
+Next, StreetName: ""Valencia"". Then StreetType is ""Blvd"". PostDir would be empty here, since there's no directional after the street name. Unit: the address doesn't mention a unit like apartment number, so that's empty. City is ""Valencia"", State is ""CA"" as specified. Zip is ""91355"".
+
+Wait, the address is ""23630 B Valencia Blvd Valencia 91355"". So after the street, it says ""Valencia"" again. That's probably the city. So the city is Valencia, and the zip is 91355. Let me confirm: in addresses, sometimes the city name is repeated after the street, but in this case, it's likely that ""Valencia"" is the city. So the structure is:
+
+Number: 23630
+
+PreDir: B
+
+StreetName: Valencia
+
+StreetType: Blvd
+
+PostDir: (empty)
+
+Unit: (empty)
+
+City: Valencia
+
+State: CA
+
+Zip: 91355
+
+Wait, but ""B"" as PreDir. Let me check if ""B"" is a common pre-directional. In some places, they use letters for directions, but it's not standard. However, the user says to use exactly the keys, so if ""B"" is present, it should go into PreDir. So PreDir is ""B"".
+
+StreetName is ""Valencia"", StreetType ""Blvd"". Then the next ""Valencia"" is the city. So City is Valencia. Zip is 91355. State is CA as given.
+
+Double-checking: the address is ""23630 B Valencia Blvd Valencia 91355"". So splitting:
+
+- 23630: Number
+
+- B: PreDir
+
+- Valencia: StreetName
+
+- Blvd: StreetType
+
+- Valencia: City
+
+- 91355: Zip
+
+Yes, that makes sense. So all the fields should be filled accordingly. Unit is missing, so empty string. PostDir is empty. State is CA. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""23630"",
+  ""PreDir"": ""B"",
+  ""StreetName"": ""Valencia"",
+  ""StreetType"": ""Blvd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Valencia"",
+  ""State"": ""CA"",
+  ""Zip"": ""91355""
+}",
+23630 A Valencia Blvd Valencia 91355,23630,A,Valencia,Blvd,,,Valencia,CA,91355,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address ""23630 A Valencia Blvd Valencia 91355"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the Number. The first part is ""23630"", so that's the street number. Then there's ""A"" before ""Valencia Blvd"". Wait, ""A"" might be a pre-directional, like North or South. But ""A"" isn't a standard pre-direction. Wait, sometimes addresses use letters for directions, but usually it's N, S, E, W. Hmm. Maybe ""A"" here is part of the street name? Wait, the street name is ""Valencia Blvd"", so ""A"" might be a pre-direction. But ""A"" isn't standard. Maybe it's a typo or part of the street name. Wait, the address is ""23630 A Valencia Blvd"". So ""A"" could be a pre-direction. But since the user says if unknown, use """", maybe I should check if ""A"" is a valid pre-direction. But I think in some contexts, like in some cities, they use letters for directions, but it's not common. However, the problem says to use the keys as given. Let's see: PreDir is a key, so if there's a pre-direction, put it there. But ""A"" might not be a standard one. Wait, maybe ""A"" is part of the street name. Wait, ""Valencia Blvd"" is the street name. So ""A"" might be a pre-direction. Let's assume it's a pre-direction even if it's not standard. So PreDir would be ""A"".
+
+Next, StreetName. The street name is ""Valencia"", since ""Blvd"" is the street type. So StreetName is ""Valencia"".
+
+StreetType is ""Blvd"".
+
+PostDir: After the street name, sometimes there's a post-direction like ""N"", ""S"", etc. But in this address, after ""Blvd"" it's ""Valencia 91355"". Wait, the address is ""23630 A Valencia Blvd Valencia 91355"". Wait, ""Valencia"" appears twice. So the city is ""Valencia"", and the zip is ""91355"". So the part after ""Blvd"" is ""Valencia"", which is the city. So PostDir would be empty because there's no post-direction after the street type. So PostDir is """".
+
+Unit: The address doesn't mention a unit number like ""Apt 123"" or ""Unit 5"", so Unit is """".
+
+City: The city is ""Valencia"".
+
+State: The user specified State should be ""CA"", so that's fixed.
+
+Zip: The zip code is ""91355"".
+
+Wait, let's check again. The address is ""23630 A Valencia Blvd Valencia 91355"". So breaking it down:
+
+- Number: 23630
+- PreDir: A (assuming it's a pre-direction)
+- StreetName: Valencia
+- StreetType: Blvd
+- PostDir: (none, so """")
+- Unit: (none, so """")
+- City: Valencia
+- State: CA
+- Zip: 91355
+
+Wait, but ""Valencia"" is both the street name and the city. So after ""Blvd"", it's ""Valencia"" which is the city. So the city is Valencia, zip 91355. So that's correct.
+
+Check if ""A"" is a pre-direction. In some addresses, like ""A"" for ""Avenue"", but here it's ""A Valencia Blvd"", so ""A"" is likely a pre-direction. But since it's a single letter, maybe it's a typo, but the user says to use the keys as given. So PreDir would be ""A"".
+
+Wait, but sometimes ""A"" could be part of the street name, like ""A Street"", but here it's ""A Valencia Blvd"", so ""A"" is separate. So PreDir is ""A"".
+
+So putting it all together:
+
+Number: ""23630""
+
+PreDir: ""A""
+
+StreetName: ""Valencia""
+
+StreetType: ""Blvd""
+
+PostDir: """"
+
+Unit: """"
+
+City: ""Valencia""
+
+State: ""CA""
+
+Zip: ""91355""
+
+Double-checking. The address is ""23630 A Valencia Blvd Valencia 91355"". So after the street type ""Blvd"", the next word is ""Valencia"", which is the city. So yes, City is Valencia. Zip is 91355. State is CA as specified.
+
+I think that's all. Let me make sure none of the fields are missing. All required keys are covered. If any part is unknown, use """", but here all parts are present except PostDir and Unit, which are empty.
+</think>
+
+{
+  ""Number"": ""23630"",
+  ""PreDir"": ""A"",
+  ""StreetName"": ""Valencia"",
+  ""StreetType"": ""Blvd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Valencia"",
+  ""State"": ""CA"",
+  ""Zip"": ""91355""
+}",
+19414 Santa Clarita 91350,19414,,,,,,Santa Clarita,CA,91350,['StreetName'],1,True,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided the address ""19414 Santa Clarita 91350"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Looking at the address: ""19414 Santa Clarita 91350"". The number part is probably ""19414"", which would go into the Number key. Then there's ""Santa Clarita"" – that's likely the street name. Wait, but sometimes ""Santa Clarita"" could be a city. Wait, the user mentioned the State should be ""CA"", so maybe Santa Clarita is the city. But the address has ""Santa Clarita"" followed by the zip code 91350. Wait, the zip code 91350 is associated with Santa Clarita, CA. So maybe ""Santa Clarita"" is the city here.
+
+Wait, the standard address format is usually Number, Street Name, Street Type, etc. But in this case, the address is written as ""19414 Santa Clarita 91350"". So ""19414"" is the number, ""Santa Clarita"" might be the street name, but ""Santa Clarita"" is actually a city in California. Hmm. Wait, Santa Clarita is a city, so maybe the street name is missing here. Wait, but the user's example might have a typo or maybe it's a street name. Wait, but Santa Clarita is a city, so perhaps the address is missing the street name. Wait, but the user provided the address as is, so I have to parse it as given.
+
+Wait, the keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. So let's see. The address is ""19414 Santa Clarita 91350"". Let's split it.
+
+Number: 19414. That's straightforward.
+
+Then ""Santa Clarita"" – if this is the street name, but ""Santa Clarita"" is a city. Wait, but maybe it's a street name. Wait, in reality, Santa Clarita is a city, so perhaps the address is missing the street name. But the user's input is ""19414 Santa Clarita 91350"", so maybe ""Santa Clarita"" is the street name here. Wait, but ""Santa Clarita"" is a city, so maybe the city is Santa Clarita, and the zip is 91350. Let's check: 91350 is a zip code for Santa Clarita, CA. So the city should be Santa Clarita, and the zip is 91350.
+
+So breaking it down:
+
+Number: 19414
+
+StreetName: Maybe empty? Because ""Santa Clarita"" is the city. Wait, but the address is written as ""19414 Santa Clarita 91350"", so perhaps ""Santa Clarita"" is the street name. But that's confusing because Santa Clarita is a city. Wait, maybe it's a typo, and the street name is something else, but the user provided it as is. So I have to go with the given string.
+
+Wait, the user's instruction says to parse the address as given. So ""19414 Santa Clarita 91350"" – so the number is 19414, then ""Santa Clarita"" is the street name, and 91350 is the zip. But Santa Clarita is a city, so maybe the city is Santa Clarita, and the street name is missing. But the user's address doesn't have a street name. Hmm.
+
+Wait, the keys include StreetName, so maybe ""Santa Clarita"" is the street name. But in reality, Santa Clarita is a city. However, the user might have made a mistake in the address. But as a parser, I should go by the given string. So ""Santa Clarita"" would be the StreetName, but that's not standard. Alternatively, maybe ""Santa Clarita"" is the city, so City would be Santa Clarita, and the street name is missing. But the address format usually has a street name. Wait, maybe the address is written as ""19414 Santa Clarita"" followed by the zip, so Santa Clarita is the city. Wait, but the zip code 91350 is for Santa Clarita, so the city should be Santa Clarita.
+
+So let's think: the address is ""19414 Santa Clarita 91350"". So the number is 19414, the city is Santa Clarita, and the zip is 91350. But where does the street name fit in? The address as given doesn't have a street name. So StreetName would be empty. Similarly, PreDir, PostDir, Unit would be empty.
+
+Wait, but the user's example might have a mistake. Let's check the keys again. The required keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+So for the address ""19414 Santa Clarita 91350"", the number is 19414. Then ""Santa Clarita"" – if it's the city, then City would be Santa Clarita. The zip is 91350. State is CA as per instructions.
+
+So StreetName would be empty, since there's no street name given. Similarly, PreDir, StreetType, PostDir, Unit would all be empty.
+
+Wait, but ""Santa Clarita"" could be the street name. For example, maybe it's ""19414 Santa Clarita Street"", but the user omitted the street type. But the address provided is ""Santa Clarita"" without a street type. So perhaps StreetName is ""Santa Clarita"", and StreetType is empty. But in reality, Santa Clarita is a city, so this is confusing.
+
+But the user's instruction says to parse the address as given. So ""Santa Clarita"" is part of the address. Let's split the address into parts. The address is ""19414 Santa Clarita 91350"". So the first part is the number, then ""Santa Clarita"", then the zip. So the city is Santa Clarita, zip is 91350. So City: Santa Clarita, Zip: 91350.
+
+Therefore, StreetName would be empty because there's no street name provided. So all the street-related fields (PreDir, StreetName, StreetType, PostDir) would be empty. Unit is also empty.
+
+So putting it all together:
+
+Number: 19414
+
+PreDir: """"
+
+StreetName: """"
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: Santa Clarita
+
+State: CA
+
+Zip: 91350
+
+Wait, but the user said ""State should be CA"", so even if the address didn't specify, we set State to CA. So that's covered.
+
+Let me double-check. The address is ""19414 Santa Clarita 91350"". So:
+
+- Number: 19414
+
+- The next part is ""Santa Clarita"", which is likely the city, so City: Santa Clarita
+
+- Zip: 91350
+
+All other fields are unknown, so empty strings.
+
+Yes, that makes sense. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""19414"",
+  ""PreDir"": """",
+  ""StreetName"": """",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Santa Clarita"",
+  ""State"": ""CA"",
+  ""Zip"": ""91350""
+}",
+Vista Ridge Wy Chatsworth 91311,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing. The user provided the address ""Vista Ridge Wy Chatsworth 91311"" and wants it broken down into specific JSON keys. First, I need to recall the standard address components.
+
+The keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State should be ""CA"" as per the instructions. If any part is unknown, use an empty string.
+
+Looking at the address: ""Vista Ridge Wy Chatsworth 91311"". Let's break it down.
+
+""Vista Ridge Wy"" – ""Wy"" is likely an abbreviation for ""Way"". So StreetName would be ""Vista Ridge"", StreetType ""Way"". Wait, but sometimes ""Wy"" could be part of the street name. Wait, ""Vista Ridge Way"" is a common street name. So ""Vista Ridge"" is the StreetName, ""Way"" is the StreetType. So StreetType should be ""Way"", but the input says ""Wy"", so maybe they want ""Way"" as the StreetType. But the user says to use the given data. Wait, the instruction says to parse the address as given. So ""Wy"" is the abbreviation, so StreetType would be ""Wy""? But the standard abbreviation for Way is ""Wy"", so maybe that's acceptable. Wait, but the example might expect the full form. However, the user says to use the address as given. Wait, the problem says ""parse this address"", so if the address uses ""Wy"", then StreetType should be ""Wy"". But maybe in the context of the problem, they want the standard abbreviation. Hmm. Wait, the user says ""Use exactly these keys"" and ""If unknown, use """"."" So if the address has ""Wy"", then StreetType is ""Wy"". But let me check common abbreviations. In addresses, ""Way"" is often abbreviated as ""Wy"", so ""Vista Ridge Wy"" would mean the street type is ""Wy"". So StreetType should be ""Wy"".
+
+Next, ""Chatsworth"" is the city. So City is ""Chatsworth"". Then ""91311"" is the zip code. So Zip is ""91311"".
+
+Now, checking for other components. Number: The address doesn't have a house number. So Number should be empty string. PreDir: Pre-directional like ""N"", ""S"", etc. Not present here. So PreDir is """". PostDir: Post-directional like ""E"", ""W"", etc. Not present. Unit: No unit number given, so empty. State is specified to be ""CA"", so State: ""CA"".
+
+Let me confirm each part:
+
+- Number: Not present → """"
+- PreDir: Not present → """"
+- StreetName: ""Vista Ridge"" (since ""Wy"" is the street type)
+- StreetType: ""Wy""
+- PostDir: Not present → """"
+- Unit: Not present → """"
+- City: ""Chatsworth""
+- State: ""CA""
+- Zip: ""91311""
+
+Wait, but sometimes ""Vista Ridge"" might be the street name, and ""Wy"" the type. So StreetName is ""Vista Ridge"", StreetType ""Wy"". That seems right.
+
+Check if ""Chatsworth"" is the city. Yes, Chatsworth is a city in Los Angeles County, CA. So City is correct.
+
+Zip code 91311 is for Chatsworth, CA. So that's correct.
+
+So putting it all together:
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": ""Vista Ridge"",
+  ""StreetType"": ""Wy"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Chatsworth"",
+  ""State"": ""CA"",
+  ""Zip"": ""91311""
+}
+
+Wait, but the user said ""State should be 'CA'"". So even if the address didn't specify, we have to set State to ""CA"". But in this case, the address is in Chatsworth, which is in CA, so it's correct.
+
+Double-checking all keys. The user specified exactly those keys, so no other keys should be present.
+
+Yes, this seems to fit. Let me make sure there's no number. The address starts with ""Vista Ridge Wy"", so no house number. So Number is empty.
+
+Another check: sometimes ""Vista Ridge"" could be the street name, and ""Wy"" the type. So StreetName: Vista Ridge, StreetType: Wy. Correct.
+
+So the JSON should have those values.
+</think>
+
+{""Number"": """", ""PreDir"": """", ""StreetName"": ""Vista Ridge"", ""StreetType"": ""Wy"", ""PostDir"": """", ""Unit"": """", ""City"": ""Chatsworth"", ""State"": ""CA"", ""Zip"": ""91311""}"
+21582 Chatsworth 91311,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"Failed to parse JSON from model output: Okay, let's tackle this address parsing. The user provided the address ""21582 Chatsworth 91311"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Looking at the address: ""21582 Chatsworth 91311"". The number part is usually the street number. Here, ""21582"" seems like the street number. Then ""Chatsworth"" is likely the street name. The last part ""91311"" is a zip code. Wait, but the user mentioned the State should be ""CA"", so I don't need to worry about that.
+
+Wait, the keys are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Let me check each part.
+
+Number: 21582. That's straightforward.
+
+PreDir: Pre-directional like North, South. The address doesn't have any, so it should be empty.
+
+StreetName: Chatsworth. That's the main part of the street name.
+
+StreetType: Sometimes streets have types like St, Ave, etc. Here, ""Chatsworth"" is probably the full name, so StreetType might be empty. Wait, but maybe ""Chatsworth"" is the street name and there's no type. So StreetType would be empty.
+
+PostDir: Post-directional like East, West. Not present here, so empty.
+
+Unit: No unit number mentioned, so empty.
+
+City: The address doesn't have a city name. Wait, ""Chatsworth"" might be the city? Wait, Chatsworth is a city in California, but the address is written as ""21582 Chatsworth 91311"". Wait, 91311 is a zip code for Chatsworth, CA. So maybe ""Chatsworth"" is the city. But the address format usually has the street number, street name, then city, state, zip. But here it's number, street name, zip. So perhaps the city is missing, but the user says to use ""CA"" for state, and the city might be inferred from the zip. Wait, but the user says if unknown, use """". So if the city isn't provided, leave it empty. Wait, but the address given is ""21582 Chatsworth 91311"". So ""Chatsworth"" is likely the street name, and the city might be Chatsworth, but the zip code 91311 is for Chatsworth, CA. So maybe the city is Chatsworth. Wait, but the address is written as ""21582 Chatsworth 91311"", which might mean the street is Chatsworth, and the zip is 91311. So the city would be Chatsworth. But I'm not sure. Wait, in standard addresses, the city comes after the street and before the state and zip. But here, the zip is at the end. So maybe the city is missing, and the zip is given. But the user says to use ""CA"" for state, so the city might be inferred from the zip. However, the problem states to use the address as given. The address provided doesn't have a city name, so City should be empty. Wait, but ""Chatsworth"" is a city. Let me check: Chatsworth is a city in Los Angeles County, CA, with zip code 91311. So the address ""21582 Chatsworth 91311"" would mean the street number 21582 on Chatsworth Street, in the city of Chatsworth, CA, zip 91311. Wait, but the street name would be Chatsworth, and the city is Chatsworth. So in the address, ""Chatsworth"" is the street name, and the city is also Chatsworth. But the user's address format might have the street name followed by the zip, so the city is missing. Hmm. But according to the problem statement, if unknown, use """". So if the city isn't explicitly stated, we leave it empty. Wait, but the address is ""21582 Chatsworth 91311"". So ""Chatsworth"" is the street name, and the zip is 91311. The city would be Chatsworth, but since it's not written in the address, maybe we should leave City as empty. Wait, but the zip code 91311 is for Chatsworth, so the city is Chatsworth. However, the problem says to parse the given address, not to infer from zip. So if the address doesn't have ""Chatsworth"" as the city, but as the street name, then City would be empty. Wait, but the address is written as ""21582 Chatsworth 91311"", which is a bit ambiguous. Let's think of standard address formats. Typically, it's number, street name, street type, city, state, zip. But here, there's no street type, and the zip is at the end. So maybe ""Chatsworth"" is the street name, and the city is missing. So City would be empty. But since the zip code 91311 is for Chatsworth, maybe the city is Chatsworth. However, the problem says to use the address as given, not to look up. So if the address doesn't have a city name, we leave it empty. So City would be """".
+
+State is given as ""CA"", so that's fixed.
+
+Zip is 91311.
+
+Let me confirm each key:
+
+Number: 21582
+
+PreDir: (no pre-directional, so """")
+
+StreetName: Chatsworth
+
+StreetType: (no type like St, Ave, so """")
+
+PostDir: (no post-directional, so """")
+
+Unit: (no unit, so """")
+
+City: (not provided, so """")
+
+State: ""CA""
+
+Zip: 91311
+
+Wait, but the address is ""21582 Chatsworth 91311"". So ""Chatsworth"" is the street name. So StreetName is ""Chatsworth"", and the zip is 91311. The city isn't mentioned, so City is empty. But in reality, Chatsworth is the city, but since it's not in the address as the city, we have to go with what's given. So City remains empty.
+
+So putting it all together:
+
+{
+  ""Number"": ""21582"",
+  ""PreDir"": """",
+  ""StreetName"": ""Chatsworth"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""91311""
+}
+
+Wait, but the user said ""State should be 'CA'"", so even if the address didn't have it, we set it to CA. So that's correct.
+
+Double-checking all keys are present and in the right order. The keys are exactly as specified. All required fields are there, with empty strings where unknown.
+
+Yes, this should be correct.
+</think>
+
+{
+  ""Number"": ""21582"",
+  ""PreDir"": """",
+  ""StreetName"": ""Chatsworth"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": """",
+  ""State"": ""CA"",
+  ""Zip"": ""91311""
+}"
+27426 T Navigation Ave Stevenson Ranch 91381,27426,T,Navigation,Ave,,,Stevenson Ranch,CA,91381,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address: ""27426 T Navigation Ave Stevenson Ranch 91381"". I need to break it down into the specified JSON keys.
+
+First, the Number. The first part is ""27426"", so that's the street number. Then PreDir. The ""T"" might be a direction, like ""T"" for ""Trails"" or maybe a pre-direction. Wait, ""T"" could be a pre-direction, like ""T"" for ""Trails"" but usually pre-directions are things like ""N"", ""S"", ""E"", ""W"". Wait, ""T"" might be a typo or part of the street name. Wait, the street name is ""Navigation Ave"". So ""T"" might be a pre-direction. Let me check. Sometimes addresses have directions before the street name. So ""T Navigation Ave"" – maybe ""T"" is the pre-direction. So PreDir would be ""T"".
+
+StreetName is ""Navigation"". StreetType is ""Ave"". PostDir would be empty here, since there's no direction after the street type. Unit is not present, so empty. City is ""Stevenson Ranch"". State should be ""CA"" as per instructions. Zip is ""91381"".
+
+Wait, let me confirm. The address is ""27426 T Navigation Ave Stevenson Ranch 91381"". So breaking it down:
+
+- Number: 27426
+- PreDir: T (since it's before Navigation)
+- StreetName: Navigation
+- StreetType: Ave
+- PostDir: (none, so empty)
+- Unit: (none)
+- City: Stevenson Ranch
+- State: CA
+- Zip: 91381
+
+Check if ""Stevenson Ranch"" is the city. Sometimes cities have multiple words, so that's probably the city name. The zip code is 91381, which is a valid CA zip. So State is CA as instructed.
+
+Make sure all keys are present. The user said to use exactly those keys. So Unit is empty. Let me check if ""T"" is a valid pre-direction. In some cases, ""T"" might stand for ""Trail"" but here it's part of the address. The street is ""T Navigation Ave"", so PreDir is ""T"".
+
+Yes, that seems right. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""27426"",
+  ""PreDir"": ""T"",
+  ""StreetName"": ""Navigation"",
+  ""StreetType"": ""Ave"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Stevenson Ranch"",
+  ""State"": ""CA"",
+  ""Zip"": ""91381""
+}",
+23300 Sierra Hwy Newhall Ca 91321 Newhall 91321,23300,,Sierra,Hwy,,,Newhall,CA,91321,[],0,False,"['PreDir', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user wants it in a specific JSON format with certain keys. First, I need to break down the address they provided: ""23300 Sierra Hwy Newhall Ca 91321 Newhall 91321"".
+
+Hmm, the address seems a bit messy. Let me look at each part. The number should be the street number. Here, ""23300"" is probably the number. Then ""Sierra Hwy"" – ""Hwy"" is the street type abbreviation for Highway. So StreetName would be ""Sierra"", StreetType ""Hwy"". Wait, but sometimes ""Hwy"" is part of the street name, but in this case, it's likely the type. So StreetName: Sierra, StreetType: Hwy.
+
+Next, ""Newhall"" appears twice. The first ""Newhall"" might be the city, but then there's ""Ca"" which is the state abbreviation. Wait, the user specified that State should be ""CA"", so ""Ca"" here is probably a typo for CA. So City would be Newhall, State CA.
+
+Then there's ""91321"" repeated. Zip code is usually the last part, so Zip should be 91321. But the address has ""Newhall 91321"" again. Wait, the address is ""23300 Sierra Hwy Newhall Ca 91321 Newhall 91321"". So after the first ""Newhall"", it's ""Ca"" (state), then ""91321"", then ""Newhall"" again, then ""91321"". Maybe the second ""Newhall"" and ""91321"" are redundant. So City is Newhall, Zip is 91321.
+
+Check for other fields: PreDir (pre-directional like North, South), PostDir (post-directional like East, West). The address doesn't have any of those, so they should be empty strings.
+
+Unit: The address doesn't mention an apartment number or unit, so Unit should be empty.
+
+Wait, let's confirm each part:
+
+- Number: 23300
+- PreDir: (none)
+- StreetName: Sierra
+- StreetType: Hwy
+- PostDir: (none)
+- Unit: (none)
+- City: Newhall
+- State: CA (as specified, even though ""Ca"" was written)
+- Zip: 91321
+
+Wait, the address says ""Newhall Ca 91321 Newhall 91321"". So the first ""Newhall"" is the city, then ""Ca"" is the state abbreviation, then ""91321"" is the zip. Then ""Newhall"" again and ""91321"" again. Maybe it's a typo, but the city is Newhall, zip is 91321. So City: Newhall, Zip: 91321.
+
+State should be ""CA"", so even though it's written as ""Ca"", we use ""CA"" as per instructions.
+
+Check if all keys are covered. The user said to use exactly those keys. Let's list them:
+
+Number: 23300
+
+PreDir: """"
+
+StreetName: Sierra
+
+StreetType: Hwy
+
+PostDir: """"
+
+Unit: """"
+
+City: Newhall
+
+State: CA
+
+Zip: 91321
+
+Wait, ""Sierra Hwy"" – is ""Hwy"" the street type? Yes, Highway is abbreviated as Hwy. So StreetName is Sierra, StreetType is Hwy.
+
+Double-checking if ""Sierra"" is the street name. Yes, ""Sierra Highway"" would be the full name, so StreetName: Sierra, StreetType: Hwy.
+
+No pre or post directions. Unit is not present. City is Newhall, State CA, Zip 91321.
+
+So the JSON should have all these values. Let me make sure there's no other parts. The address has ""Newhall"" twice, but the first occurrence after the street is the city, then the zip. The second ""Newhall"" and ""91321"" are probably redundant, so we ignore the second part.
+
+Yes, so the parsed JSON should be as above.
+</think>
+
+{
+  ""Number"": ""23300"",
+  ""PreDir"": """",
+  ""StreetName"": ""Sierra"",
+  ""StreetType"": ""Hwy"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Newhall"",
+  ""State"": ""CA"",
+  ""Zip"": ""91321""
+}",
+24500 Main St Newhall Ca 91321 Newhall 91321,24500,,Main,St,,,Newhall,CA,91321,[],0,False,"['PreDir', 'PostDir', 'Unit']",3,"Okay, let's tackle this address parsing. The user wants me to break down the address into specific JSON keys. First, I need to make sure I understand the required keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. State should be ""CA"", and if anything's unknown, use empty strings.
+
+Looking at the address: ""24500 Main St Newhall Ca 91321 Newhall 91321"". Let's break it down step by step.
+
+Starting with the Number. The first part is ""24500"", so that's the street number. So Number: ""24500"".
+
+Next, PreDir. That's the direction before the street name, like North or South. In this address, after the number, it's ""Main St"". There's no pre-direction here, so PreDir should be empty.
+
+StreetName is ""Main"". The street name is ""Main"", so StreetName: ""Main"".
+
+StreetType is ""St"" for Street. So StreetType: ""St"".
+
+PostDir would be a direction after the street name, like East or West. Here, after ""St"" it's ""Newhall"", so no post-direction. PostDir: """".
+
+Unit is for apartment or unit numbers. The address doesn't mention anything like ""Apt 5B"" or ""Unit 10"", so Unit: """".
+
+City: The address has ""Newhall"" twice. The first occurrence after ""St"" is ""Newhall"", then ""Ca 91321 Newhall 91321"". So the city should be ""Newhall"". But wait, ""Ca"" is probably the state abbreviation, so ""Newhall"" is the city. So City: ""Newhall"".
+
+State should be ""CA"", as per the user's instruction. So State: ""CA"".
+
+Zip: The zip code is ""91321"". There are two instances of ""91321"" in the address, but the first one after ""Ca"" is the correct zip. So Zip: ""91321"".
+
+Wait, let me check again. The address is ""24500 Main St Newhall Ca 91321 Newhall 91321"". So after ""St"", it's ""Newhall"", then ""Ca"" (state), then ""91321"", then ""Newhall"" again, then ""91321"". So the city is ""Newhall"", state ""CA"", zip ""91321"". The second ""Newhall"" and ""91321"" are probably redundant, so we take the first occurrence.
+
+Double-checking each part:
+
+- Number: 24500 ✔️
+- PreDir: none ✔️
+- StreetName: Main ✔️
+- StreetType: St ✔️
+- PostDir: none ✔️
+- Unit: none ✔️
+- City: Newhall ✔️
+- State: CA ✔️
+- Zip: 91321 ✔️
+
+Everything seems to fit. The user said to use exactly those keys, and state should be ""CA"". So the JSON should have all these values. No extra info, just the JSON.
+</think>
+
+{
+  ""Number"": ""24500"",
+  ""PreDir"": """",
+  ""StreetName"": ""Main"",
+  ""StreetType"": ""St"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Newhall"",
+  ""State"": ""CA"",
+  ""Zip"": ""91321""
+}",
+Quarry Rd Sylmar 91342,,,Quarry,Rd,,,Sylmar,CA,91342,[],0,False,"['Number', 'PreDir', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided ""Quarry Rd Sylmar 91342"" and wants it in a specific JSON format with certain keys. First, I need to break down the address into the required components.
+
+Starting with the address: ""Quarry Rd Sylmar 91342"". Let's split it. ""Quarry Rd"" is likely the street name and type. ""Rd"" stands for Road, so StreetName would be ""Quarry"" and StreetType ""Rd"". Then ""Sylmar"" is the city. The zip code is ""91342"". 
+
+Wait, the user said State should be ""CA"", so I'll set State to ""CA"" regardless. Now, checking the keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+Looking at ""Quarry Rd"", there's no pre-direction (like North or South) before the street name, so PreDir is empty. ""Rd"" is the street type. PostDir would be after the street name, but here it's ""Rd"" so maybe PostDir is empty. Wait, ""Rd"" is the type, so StreetType is ""Rd"", and PostDir would be if there's something like ""S"" after the street, but here it's ""Quarry Rd Sylmar"", so ""Sylmar"" is the city. So PostDir is empty.
+
+Number: The address doesn't have a house number, so Number is empty. Unit: No unit mentioned, so empty. City is ""Sylmar"", State ""CA"", Zip ""91342"".
+
+Wait, the address is ""Quarry Rd Sylmar 91342"". So ""Quarry Rd"" is the street, then ""Sylmar"" is the city, then zip. So StreetName is ""Quarry"", StreetType ""Rd"", City ""Sylmar"", Zip ""91342"". All other fields are empty.
+
+Double-checking: PreDir would be like ""N"" before the street, but here it's ""Quarry Rd"", so no PreDir. PostDir would be like ""S"" after, but ""Rd"" is the type, so PostDir is empty. Unit is not present. So all the empty fields should be """".
+
+State is specified to be ""CA"", so that's set. So the JSON should have:
+
+Number: """",
+PreDir: """",
+StreetName: ""Quarry"",
+StreetType: ""Rd"",
+PostDir: """",
+Unit: """",
+City: ""Sylmar"",
+State: ""CA"",
+Zip: ""91342""
+
+Wait, but ""Quarry Rd"" – is ""Rd"" part of the street type? Yes, so StreetName is ""Quarry"", StreetType ""Rd"". That's correct.
+
+Check if ""Sylmar"" is the city. Yes, Sylmar is a city in Los Angeles, CA. Zip code 91342 is for Sylmar, so that's correct.
+
+So putting it all together. Let me make sure all keys are present and in the right order. The user specified the exact keys, so I need to use those. No other keys. All the empty ones are """".
+
+Yes, this should be correct.
+</think>
+
+{
+  ""Number"": """",
+  ""PreDir"": """",
+  ""StreetName"": ""Quarry"",
+  ""StreetType"": ""Rd"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Sylmar"",
+  ""State"": ""CA"",
+  ""Zip"": ""91342""
+}",
+11231 t Canopus Dr Sylmar 91342,11231,t,Canopus,Dr,,,Sylmar,CA,91342,[],0,False,"['PostDir', 'Unit']",2,"Okay, let's tackle this address parsing. The user provided the address: ""11231 t Canopus Dr Sylmar 91342"". I need to break it down into the specified JSON keys.
+
+First, the Number. The first part is ""11231"", so that's the street number. Then PreDir. The next part is ""t"", which might be a pre-directional like ""N"", ""S"", etc. But ""t"" isn't standard. Wait, maybe it's a typo for ""T"" as in ""T"" for ""Trail"" or something, but the user said to use exactly the keys. Wait, the PreDir is supposed to be a direction like North, South. But ""t"" is lowercase. Maybe it's a mistake, but I should take it as given. So PreDir would be ""t"".
+
+Next, StreetName. The next part is ""Canopus"". So StreetName is ""Canopus"".
+
+StreetType is ""Dr"", which stands for Drive. So StreetType is ""Dr"".
+
+PostDir is the next part after the street type. But after ""Dr"" comes ""Sylmar"", which is the city. Wait, the address is ""11231 t Canopus Dr Sylmar 91342"". So after ""Dr"" is ""Sylmar"", which is the city. So PostDir would be empty here. Wait, but sometimes PostDir is like ""E"" or ""W"". But in this case, after ""Dr"" it's ""Sylmar"", so maybe there's no PostDir. So PostDir should be """".
+
+Unit: The address doesn't mention a unit number like ""Apt 123"", so Unit is """".
+
+City is ""Sylmar"".
+
+State should be ""CA"" as per the user's instruction.
+
+Zip is ""91342"".
+
+Wait, let me check again. The address is ""11231 t Canopus Dr Sylmar 91342"". So breaking it down:
+
+- Number: 11231
+- PreDir: t (since it's before the street name)
+- StreetName: Canopus
+- StreetType: Dr
+- PostDir: ? After Dr, it's Sylmar, which is the city, so no PostDir. So PostDir is """"
+- Unit: Not present, so """"
+- City: Sylmar
+- State: CA
+- Zip: 91342
+
+Wait, but ""t"" as PreDir. Usually, PreDir would be like ""N"", ""S"", but ""t"" might be a typo. But the user says to use exactly what's given. So even if it's not standard, I should take ""t"" as PreDir.
+
+Also, check if ""Sylmar"" is the city. Yes, Sylmar is a city in California. Zip code 91342 is for Sylmar, CA.
+
+So putting it all together:
+
+Number: 11231
+
+PreDir: t
+
+StreetName: Canopus
+
+StreetType: Dr
+
+PostDir: (empty)
+
+Unit: (empty)
+
+City: Sylmar
+
+State: CA
+
+Zip: 91342
+
+Double-checking the keys: all required keys are present. State is set to CA as instructed. No other info to fill in. So the JSON should have those values.
+</think>
+
+{
+  ""Number"": ""11231"",
+  ""PreDir"": ""t"",
+  ""StreetName"": ""Canopus"",
+  ""StreetType"": ""Dr"",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Sylmar"",
+  ""State"": ""CA"",
+  ""Zip"": ""91342""
+}",
+27101 Valencia 91355,,,,,,,,CA,,"['StreetName', 'City', 'State', 'Zip']",4,True,"['Number', 'PreDir', 'StreetType', 'PostDir', 'Unit']",5,,"HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=180)"
+27702 Castaic 91384,27702,,Castaic,,,,Castaic,CA,91384,[],0,False,"['PreDir', 'StreetType', 'PostDir', 'Unit']",4,"Okay, let's tackle this address parsing. The user provided the address ""27702 Castaic 91384"" and wants it parsed into specific JSON keys. First, I need to break down the address components.
+
+Looking at the address: ""27702 Castaic 91384"". The first part, ""27702"", is likely the street number. Then ""Castaic"" is probably the street name. The last part, ""91384"", is a zip code. The user specified that the State should be ""CA"", so I don't need to worry about that.
+
+Wait, the keys required are Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip. Let's check each part.
+
+Number: The first number, 27702. But sometimes numbers can be part of the street name, but here it's a standalone number followed by Castaic, so Number should be 27702.
+
+StreetName: Castaic. That's the street name.
+
+StreetType: The address doesn't have a street type like ""St"", ""Ave"", etc. So this should be empty.
+
+PreDir and PostDir: These are directional prefixes like ""N"", ""S"", ""E"", ""W"". The address doesn't have any, so both should be empty.
+
+Unit: There's no unit number mentioned, so empty.
+
+City: Castaic is a city in California, so City should be Castaic.
+
+State: The user says to use ""CA"", so State is CA.
+
+Zip: 91384.
+
+Wait, but the address is ""27702 Castaic 91384"". So the city is Castaic, and the zip is 91384. Let me confirm. In the US, addresses often have the city followed by the zip, but here it's written as ""Castaic 91384"", so Castaic is the city, and 91384 is the zip. So City is Castaic, Zip is 91384.
+
+Check if there's any other possible components. The number 27702 is the street number. So Number: 27702. StreetName: Castaic. StreetType: empty. PreDir and PostDir: empty. Unit: empty. City: Castaic. State: CA. Zip: 91384.
+
+Wait, but sometimes the zip code might be part of the city, but in this case, 91384 is the zip for Castaic, CA. So the city is Castaic, zip is 91384.
+
+Double-checking the keys: Number, PreDir, StreetName, StreetType, PostDir, Unit, City, State, Zip.
+
+So filling in:
+
+Number: 27702
+
+PreDir: """"
+
+StreetName: Castaic
+
+StreetType: """"
+
+PostDir: """"
+
+Unit: """"
+
+City: Castaic
+
+State: CA
+
+Zip: 91384
+
+Yes, that seems right. The user said if unknown, use """", so all the missing fields are empty. State is specified as CA, so that's set. The address doesn't have any directions or unit, so those are empty. StreetType is missing, so empty. All good.
+</think>
+
+{
+  ""Number"": ""27702"",
+  ""PreDir"": """",
+  ""StreetName"": ""Castaic"",
+  ""StreetType"": """",
+  ""PostDir"": """",
+  ""Unit"": """",
+  ""City"": ""Castaic"",
+  ""State"": ""CA"",
+  ""Zip"": ""91384""
+}",
