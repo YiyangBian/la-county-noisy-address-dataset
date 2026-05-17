@@ -35,8 +35,8 @@ Noisy_dataset/
 │       │       ├── Incomplete_addresses_with_fraction_[metadata]_1857rows.csv
 │       │       └── Incomplete_addresses_with_fraction_[validationResults]_1857rows.csv
 │       ├── All_incomplete_addresses_[metadata]_140,640rows.csv
-│       ├── All_incomplete_addresses_representatives_[metadata]_4116rows.csv
-│       └── All_incomplete_addresses_representatives_[validationResults]_4116rows.csv
+│       ├── All_incomplete_addresses_representatives_[metadata]_4166rows.csv
+│       └── All_incomplete_addresses_representatives_[validationResults]_4166rows.csv
 ├── eGIS_Addressing_raw__2700971rows_51cols.csv
 ├── raw_data_with_U_3122rows_52cols_[metadata].csv
 └── raw_data_without_U_2697849rows_52cols_[metadata].csv
@@ -204,8 +204,8 @@ Fractional addresses are handled separately because they often introduce ambigui
 ```text
 Incomplete/
 ├── All_incomplete_addresses_[metadata]_140,640rows.csv
-├── All_incomplete_addresses_representatives_[metadata]_4116rows.csv
-├── All_incomplete_addresses_representatives_[validationResults]_4116rows.csv
+├── All_incomplete_addresses_representatives_[metadata]_4166rows.csv
+├── All_incomplete_addresses_representatives_[validationResults]_4166rows.csv
 └── fraction_split/
 ```
 This folder contains the subset of addresses identified as incomplete, meaning that one or more important address components are missing.
@@ -228,7 +228,7 @@ It includes:
 - original metadata fields.
 
 ### 4.2 Incomplete Representative Records
-#### `All_incomplete_addresses_representatives_[metadata]_4116rows.csv`
+#### `All_incomplete_addresses_representatives_[metadata]_4166rows.csv`
 This file contains one representative address per group from the incomplete-address dataset.
 
 The goal of this representative file is to avoid validating every record individually when many records share the same or highly similar incomplete pattern.
@@ -243,7 +243,7 @@ This file includes:
 
 ### 4.3 Validation Results
 
-#### `All_incomplete_addresses_representatives_[validationResults]_4116rows.csv`
+#### `All_incomplete_addresses_representatives_[validationResults]_4166rows.csv`
 This file stores the Google Address Validation API results for the representative incomplete addresses.
 
 - Validation Results
